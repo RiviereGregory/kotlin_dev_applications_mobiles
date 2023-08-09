@@ -27,20 +27,20 @@ class MainActivity : ComponentActivity() {
             }
         }
         val nom = "Tom"
-        val age = 10
+        val age = 16
+        val taille = 1.60F
         val dev = true
-        if (age < 10) {
-            println("$nom, tu es trop jeune pour regarder ce film")
-        } else if (age < 13) {
-            println("$nom, tu peux regader ce film avec tes parents")
-        } else {
-            println("$nom, tu peux regarder ce film")
+        when {
+            age < 13 -> println("$nom, tu ne peux pas regarder ce film")
+            age in 14..17 -> println("$nom, tu peux regader ce film avec tes parents")
+            else -> println("$nom, tu peux regarder ce film")
         }
 
-        if (dev) {
-            println("Tu es un développeur")
-        } else {
-            println("Tu n'es pas un développeur")
+        when {
+            age < 5 -> println("Tu ne peux pas t'inscrire dans cette activité")
+            taille < 1F -> println("Tu ne peux pas t'inscrire dans cette activité")
+            dev.and(age >= 18) -> println("Tu devenir formateur")
+            else -> println("Tu peux t'inscrire dans cette activité")
         }
 
     }
