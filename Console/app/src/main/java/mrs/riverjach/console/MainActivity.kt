@@ -31,9 +31,9 @@ class MainActivity : ComponentActivity() {
         val dev = true
         println(
             """Raw String
-            Nom : $nom 
-            Age : $age 
-            Developpeur : $dev"""
+            |Nom : $nom 
+            |Age : $age 
+            |Developpeur : $dev""".trimMargin()
         )
 
     }
