@@ -11,7 +11,6 @@ import androidx.compose.runtime.Composable
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.tooling.preview.Preview
 import mrs.riverjach.console.ui.theme.ConsoleTheme
-import java.util.Locale
 
 class MainActivity : ComponentActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -30,8 +29,7 @@ class MainActivity : ComponentActivity() {
         val nom = "Tom"
         val age = 10
         val dev = true
-        println("nom : $nom age : $age developpeur : $dev")
-        println("nom : ${nom.uppercase(Locale.ROOT)} age : ${age + 5} developpeur : $dev")
+        println("Concatenation : " + "\nnom :" + nom + "\nage : " + age + "\ndeveloppeur : " + dev)
 
     }
 }
