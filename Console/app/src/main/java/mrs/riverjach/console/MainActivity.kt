@@ -29,7 +29,12 @@ class MainActivity : ComponentActivity() {
         val nom = "Tom"
         val age = 10
         val dev = true
-        println("Concatenation : " + "\nnom :" + nom + "\nage : " + age + "\ndeveloppeur : " + dev)
+        println(
+            """Raw String
+            Nom : $nom 
+            Age : $age 
+            Developpeur : $dev"""
+        )
 
     }
 }
