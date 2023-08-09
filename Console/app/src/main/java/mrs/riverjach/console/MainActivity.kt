@@ -29,12 +29,19 @@ class MainActivity : ComponentActivity() {
         val nom = "Tom"
         val age = 10
         val dev = true
-        println(
-            """Raw String
-            |Nom : $nom 
-            |Age : $age 
-            |Developpeur : $dev""".trimMargin()
-        )
+        if (age < 10) {
+            println("$nom, tu es trop jeune pour regarder ce film")
+        } else if (age < 13) {
+            println("$nom, tu peux regader ce film avec tes parents")
+        } else {
+            println("$nom, tu peux regarder ce film")
+        }
+
+        if (dev) {
+            println("Tu es un développeur")
+        } else {
+            println("Tu n'es pas un développeur")
+        }
 
     }
 }
