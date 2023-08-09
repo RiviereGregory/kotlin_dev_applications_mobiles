@@ -26,6 +26,11 @@ class MainActivity : ComponentActivity() {
                 }
             }
         }
+        val nom = "Tom"
+        val age = 10
+        val dev = true
+        println("nom : $nom age : $age developpeur : $dev")
+
     }
 }
 
