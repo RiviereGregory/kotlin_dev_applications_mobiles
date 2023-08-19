@@ -11,6 +11,7 @@ import androidx.compose.runtime.Composable
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.tooling.preview.Preview
 import mrs.riverjach.console.ui.theme.ConsoleTheme
+import java.util.Arrays
 
 class MainActivity : ComponentActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -27,13 +28,15 @@ class MainActivity : ComponentActivity() {
             }
         }
 
-        // Autre façon dd déclarer un tableau
-        // val noms = Array<String>(3){"Pim";"Pam";"Poum"}
-        val noms = arrayOf("Pim", "Pam", "Poum")
-        noms.set(1, "Tom")
-        noms[2] = "tom"
-        println("${noms.get(1)} / ${noms[2]}")
-
+        val age = Array<Int>(10) { 0 }
+        val age2 = arrayOf(20, 30, 45)
+        val nom = Array<String>(10) { "" }
+        val nom2 = arrayOf("Pim", "Pam", "Poum")
+        println(Arrays.toString(age))
+        println("${nom2[0]} a ${age2[0]} ans")
+        nom[0] = "Tom"
+        age[0] = 15
+        println("${nom[0]} a ${age[0]} ans")
     }
 }
 
