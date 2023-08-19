@@ -11,7 +11,6 @@ import androidx.compose.runtime.Composable
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.tooling.preview.Preview
 import mrs.riverjach.console.ui.theme.ConsoleTheme
-import java.util.Arrays
 
 class MainActivity : ComponentActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -28,15 +27,34 @@ class MainActivity : ComponentActivity() {
             }
         }
 
-        val age = Array<Int>(10) { 0 }
-        val age2 = arrayOf(20, 30, 45)
-        val nom = Array<String>(10) { "" }
-        val nom2 = arrayOf("Pim", "Pam", "Poum")
-        println(Arrays.toString(age))
-        println("${nom2[0]} a ${age2[0]} ans")
-        nom[0] = "Tom"
-        age[0] = 15
-        println("${nom[0]} a ${age[0]} ans")
+        // Boucle for : parcours d'un array de string
+        val nom = arrayOf("Pim", "Pam", "Poum", "Tom", "Bob")
+        for (name in nom) {
+            print(name)
+            print(" ")
+        }
+        println("") //saut de ligne
+
+        // Boucle for : affichage des carrés de 0 à 9
+        for (i in 0..9) {
+            print(i * i)
+            print(" ")
+        }
+        println("") //saut de ligne
+
+        // Boucle for croissante de pas 3
+        for (i in 0..39 step 3) {
+            print(i)
+            print(" ")
+        }
+        println("") //saut de ligne
+
+        // Boucle for decroissante de pas 2
+        for (i in 10 downTo 0 step 2) {
+            print(i)
+            print(" ")
+        }
+        println("") //saut de ligne
     }
 }
 
