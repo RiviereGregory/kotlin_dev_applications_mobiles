@@ -26,18 +26,11 @@ class MainActivity : ComponentActivity() {
                 }
             }
         }
-        val nom = "Tom"
-        val age = 16
-        if (estMAjeur(age)) {
-            println("$nom est majeur")
-        } else {
-            println("$nom est mineur")
-        }
 
-    }
+        // Autre façon dd déclarer un tableau
+        // val noms = Array<String>(3){"Pim";"Pam";"Poum"}
+        val noms = arrayOf("Pim", "Pam", "Poum")
 
-    private fun estMAjeur(age: Int): Boolean {
-        return age >= 18
     }
 }
 
