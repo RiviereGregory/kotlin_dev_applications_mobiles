@@ -30,6 +30,8 @@ class MainActivity : ComponentActivity() {
         // Autre façon dd déclarer un tableau
         // val noms = Array<String>(3){"Pim";"Pam";"Poum"}
         val noms = arrayOf("Pim", "Pam", "Poum")
+        noms.set(1, "Tom")
+        noms[2] = "tom"
         println("${noms.get(1)} / ${noms[2]}")
 
     }
