@@ -28,21 +28,16 @@ class MainActivity : ComponentActivity() {
         }
         val nom = "Tom"
         val age = 16
-        val taille = 1.60F
-        val dev = true
-        when {
-            age < 13 -> println("$nom, tu ne peux pas regarder ce film")
-            age in 14..17 -> println("$nom, tu peux regader ce film avec tes parents")
-            else -> println("$nom, tu peux regarder ce film")
+        if (estMAjeur(age)) {
+            println("$nom est majeur")
+        } else {
+            println("$nom est mineur")
         }
 
-        when {
-            age < 5 -> println("Tu ne peux pas t'inscrire dans cette activité")
-            taille < 1F -> println("Tu ne peux pas t'inscrire dans cette activité")
-            dev.and(age >= 18) -> println("Tu devenir formateur")
-            else -> println("Tu peux t'inscrire dans cette activité")
-        }
+    }
 
+    private fun estMAjeur(age: Int): Boolean {
+        return age >= 18
     }
 }
 
