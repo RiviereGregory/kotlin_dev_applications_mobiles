@@ -11,6 +11,7 @@ import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.tooling.preview.Preview
+import mrs.riverjach.console.mesclasses.Forfait
 import mrs.riverjach.console.mesclasses.Voiture
 import mrs.riverjach.console.ui.theme.ConsoleTheme
 
@@ -46,6 +47,12 @@ class MainActivity : ComponentActivity() {
         println("Voiture 3 vitesse ${maVoiture3.vitesse}")
         maVoiture4.accelerer(60)
         println("Voiture 4 vitesse ${maVoiture4.vitesse}")
+
+        val forfait1 = Forfait("PRIMO")
+        val forfait2 = Forfait("PRENIUM") // Erreur de saisie
+        println("${forfait1.prix} €")
+        println("${forfait2.prix} €")
+
     }
 }
 
