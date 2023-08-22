@@ -27,34 +27,17 @@ class MainActivity : ComponentActivity() {
             }
         }
 
-        // Boucle for : parcours d'un array de string
-        val nom = arrayOf("Pim", "Pam", "Poum", "Tom", "Bob")
-        for (name in nom) {
-            print(name)
-            print(" ")
+        val tauxAnnuel = 1.02F
+        var capital = 1000F
+        val valeurMin = 1800F
+        var nombreAnnee = 0
+        while (capital < valeurMin) {
+            capital *= tauxAnnuel
+            nombreAnnee++
         }
-        println("") //saut de ligne
+        println("le nombre d'année pour dépasser le capital de $valeurMin est de $nombreAnnee ans")
+        println("il vaudra alors $capital")
 
-        // Boucle for : affichage des carrés de 0 à 9
-        for (i in 0..9) {
-            print(i * i)
-            print(" ")
-        }
-        println("") //saut de ligne
-
-        // Boucle for croissante de pas 3
-        for (i in 0..39 step 3) {
-            print(i)
-            print(" ")
-        }
-        println("") //saut de ligne
-
-        // Boucle for decroissante de pas 2
-        for (i in 10 downTo 0 step 2) {
-            print(i)
-            print(" ")
-        }
-        println("") //saut de ligne
     }
 }
 
