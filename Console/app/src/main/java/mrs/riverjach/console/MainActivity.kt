@@ -1,5 +1,6 @@
 package mrs.riverjach.console
 
+import android.graphics.Color
 import android.os.Bundle
 import androidx.activity.ComponentActivity
 import androidx.activity.compose.setContent
@@ -10,9 +11,7 @@ import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.tooling.preview.Preview
-import mrs.riverjach.console.mesfonctions.age
-import mrs.riverjach.console.mesfonctions.changerNom
-import mrs.riverjach.console.mesfonctions.name
+import mrs.riverjach.console.mesclasses.Voiture
 import mrs.riverjach.console.ui.theme.ConsoleTheme
 
 class MainActivity : ComponentActivity() {
@@ -30,13 +29,15 @@ class MainActivity : ComponentActivity() {
             }
         }
 
-        println("Valeur du nom: $name")
-        println("Valeur de l'age: $age")
-
-        changerNom("Bob")
-        age++
-        println("Valeur du nom: $name")
-        println("Valeur de l'age: $age")
+        val maVoiture = Voiture("Subaru", "BRZ", Color.BLUE, 0)
+        maVoiture.klaxonner()
+        println(maVoiture.couleur)
+        println(maVoiture.vitesse)
+        maVoiture.accelerer(30)
+        println(maVoiture.vitesse)
+        maVoiture.vitesse = 50
+        println(maVoiture.vitesse)
+        maVoiture.tourner(30)
 
 
     }
