@@ -30,16 +30,22 @@ class MainActivity : ComponentActivity() {
         }
 
         val maVoiture = Voiture("Subaru", "BRZ", Color.BLUE, 0)
+        val maVoiture2 = Voiture("Peugeot", "208", Color.RED)
+        val maVoiture3 = Voiture("Peugeot", "5008")
+        val maVoiture4 = Voiture()
         maVoiture.klaxonner()
-        println(maVoiture.couleur)
-        println(maVoiture.vitesse)
+        println(maVoiture)
+        println(maVoiture2)
+        println(maVoiture3)
+        println(maVoiture4)
         maVoiture.accelerer(30)
-        println(maVoiture.vitesse)
-        maVoiture.vitesse = 50
-        println(maVoiture.vitesse)
-        maVoiture.tourner(30)
-
-
+        println("Voiture 1 vitesse ${maVoiture.vitesse}")
+        maVoiture2.accelerer(40)
+        println("Voiture 2 vitesse ${maVoiture2.vitesse}")
+        maVoiture3.accelerer(50)
+        println("Voiture 3 vitesse ${maVoiture3.vitesse}")
+        maVoiture4.accelerer(60)
+        println("Voiture 4 vitesse ${maVoiture4.vitesse}")
     }
 }
 
