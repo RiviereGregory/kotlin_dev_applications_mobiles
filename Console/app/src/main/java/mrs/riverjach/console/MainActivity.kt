@@ -10,6 +10,9 @@ import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.tooling.preview.Preview
+import mrs.riverjach.console.mesfonctions.age
+import mrs.riverjach.console.mesfonctions.changerNom
+import mrs.riverjach.console.mesfonctions.name
 import mrs.riverjach.console.ui.theme.ConsoleTheme
 
 class MainActivity : ComponentActivity() {
@@ -27,16 +30,14 @@ class MainActivity : ComponentActivity() {
             }
         }
 
-        val tauxAnnuel = 1.02F
-        var capital = 1000F
-        val valeurMin = 1800F
-        var nombreAnnee = 0
-        while (capital < valeurMin) {
-            capital *= tauxAnnuel
-            nombreAnnee++
-        }
-        println("le nombre d'année pour dépasser le capital de $valeurMin est de $nombreAnnee ans")
-        println("il vaudra alors $capital")
+        println("Valeur du nom: $name")
+        println("Valeur de l'age: $age")
+
+        changerNom("Bob")
+        age++
+        println("Valeur du nom: $name")
+        println("Valeur de l'age: $age")
+
 
     }
 }
