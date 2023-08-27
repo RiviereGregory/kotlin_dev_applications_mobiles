@@ -10,7 +10,8 @@ import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.tooling.preview.Preview
-import mrs.riverjach.console.mesclasses.heritage.Ordinateur
+import mrs.riverjach.console.mesclasses.polymorphisme.Bebe
+import mrs.riverjach.console.mesclasses.polymorphisme.Personne
 import mrs.riverjach.console.ui.theme.ConsoleTheme
 
 class MainActivity : ComponentActivity() {
@@ -28,16 +29,10 @@ class MainActivity : ComponentActivity() {
             }
         }
 
-        val ordi1 = Ordinateur("PC Gamer", "ACER", 17.0, 8)
-        ordi1.nom = "Aspire Nitro V5"
-        ordi1.code = 1234567891234
-        ordi1.prix = 799.90
-        ordi1.qteStock = 6
-        ordi1.qteAlerte = 5
-        ordi1.alerte()
-        ordi1.visualiser()
-        ordi1.acheter(2)
-        ordi1.visualiser()
+        val personne = Personne(25)
+        val bebe = Bebe()
+        personne.direBonjour()
+        bebe.direBonjour()
 
     }
 }
