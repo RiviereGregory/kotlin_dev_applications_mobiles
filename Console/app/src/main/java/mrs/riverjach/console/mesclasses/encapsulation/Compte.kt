@@ -1,4 +1,4 @@
-package mrs.riverjach.console.encapsulation
+package mrs.riverjach.console.mesclasses.encapsulation
 
 open class Compte() {
     protected var solde: Double = 0.0

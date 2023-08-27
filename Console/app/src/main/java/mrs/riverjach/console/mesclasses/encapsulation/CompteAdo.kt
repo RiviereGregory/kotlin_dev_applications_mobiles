@@ -1,4 +1,4 @@
-package mrs.riverjach.console.encapsulation
+package mrs.riverjach.console.mesclasses.encapsulation
 
 class CompteAdo() : Compte() {
     private fun depotAutorise(depot: Double): Boolean {

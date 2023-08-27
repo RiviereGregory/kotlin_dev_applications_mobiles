@@ -10,8 +10,8 @@ import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.tooling.preview.Preview
-import mrs.riverjach.console.encapsulation.Compte
-import mrs.riverjach.console.encapsulation.CompteAdo
+import mrs.riverjach.console.mesclasses.encapsulation.Compte
+import mrs.riverjach.console.mesclasses.encapsulation.CompteAdo
 import mrs.riverjach.console.ui.theme.ConsoleTheme
 
 class MainActivity : ComponentActivity() {
