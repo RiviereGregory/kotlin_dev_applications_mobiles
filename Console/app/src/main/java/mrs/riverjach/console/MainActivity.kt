@@ -10,8 +10,8 @@ import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.tooling.preview.Preview
-import mrs.riverjach.console.mesclasses.polymorphisme.Bebe
-import mrs.riverjach.console.mesclasses.polymorphisme.Personne
+import mrs.riverjach.console.encapsulation.Compte
+import mrs.riverjach.console.encapsulation.CompteAdo
 import mrs.riverjach.console.ui.theme.ConsoleTheme
 
 class MainActivity : ComponentActivity() {
@@ -29,10 +29,16 @@ class MainActivity : ComponentActivity() {
             }
         }
 
-        val personne = Personne(25)
-        val bebe = Bebe()
-        personne.direBonjour()
-        bebe.direBonjour()
+        val compteParent = Compte()
+        val compteAdo = CompteAdo()
+
+        compteParent.transaction(50.0)
+        compteParent.transaction(-60.0)
+
+        compteAdo.transaction(50.0)
+        compteAdo.transaction(-60.0)
+        compteAdo.transaction(-40.0)
+
 
     }
 }
