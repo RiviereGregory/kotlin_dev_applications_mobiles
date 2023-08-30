@@ -10,10 +10,9 @@ import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.tooling.preview.Preview
-import mrs.riverjach.console.mesclasses.interfa.Avion
-import mrs.riverjach.console.mesclasses.interfa.Bicyclette
-import mrs.riverjach.console.mesclasses.interfa.Helicoptere
-import mrs.riverjach.console.mesclasses.interfa.Moto
+import mrs.riverjach.console.mesclasses.cast.demoSmartCast
+import mrs.riverjach.console.mesclasses.cast.longueurStringSafeCast
+import mrs.riverjach.console.mesclasses.cast.longueurStringUnsafeCast
 import mrs.riverjach.console.ui.theme.ConsoleTheme
 
 class MainActivity : ComponentActivity() {
@@ -31,29 +30,25 @@ class MainActivity : ComponentActivity() {
             }
         }
 
-        val maMoto = Moto()
-        maMoto.nom = "Suzuki RZK"
-        maMoto.poids = 200
-        maMoto.vitesse = 110
-        val maBicyclette = Bicyclette()
-        maBicyclette.nom = "RockRider500"
-        maBicyclette.poids = 15
-        maBicyclette.vitesse = 30
-        val monAvion = Avion()
-        monAvion.nom = "Rafale"
-        monAvion.poids = 5000
-        monAvion.vitesse = 950
-        monAvion.altitude = 8500
-        val monHelicoptere = Helicoptere()
-        monHelicoptere.nom = "Helicop83"
-        monHelicoptere.poids = 2500
-        monHelicoptere.vitesse = 250
-        monHelicoptere.altitude = 500
+        val x = "Kotlin"
+        val y = 18
+        val z = intArrayOf(1, 5, 10)
+        val a = 1.2F
+        demoSmartCast(x)
+        demoSmartCast(y)
+        demoSmartCast(z)
+        demoSmartCast(a)
 
-        println("${maMoto.nom}"); maMoto.Rouler(); maMoto.FaireLePlein()
-        println("${maBicyclette.nom}"); maBicyclette.Rouler()
-        println("${monAvion.nom}"); monAvion.Rouler(); monAvion.FaireLePlein();monAvion.Voler()
-        println("${monHelicoptere.nom}"); monHelicoptere.Voler(); monHelicoptere.FaireLePlein()
+        // unsafe Cast
+        val xx = 1
+        // xx as String -> CastClass exception
+        val yy: String = xx.toString()
+        longueurStringUnsafeCast(yy)
+
+        // Safe Cast
+        val yyy: String? = xx as? String
+        longueurStringSafeCast(yyy)
+        println(yyy)
 
     }
 }
