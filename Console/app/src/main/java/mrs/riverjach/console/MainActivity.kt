@@ -10,8 +10,8 @@ import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.tooling.preview.Preview
-import mrs.riverjach.console.mesclasses.nestedclass.Outer
-import mrs.riverjach.console.mesclasses.nestedclass.Palette
+import mrs.riverjach.console.mesclasses.innerclass.Outer
+import mrs.riverjach.console.mesclasses.innerclass.Palette
 import mrs.riverjach.console.ui.theme.ConsoleTheme
 
 class MainActivity : ComponentActivity() {
@@ -30,20 +30,12 @@ class MainActivity : ComponentActivity() {
         }
 
         // exemple 1
-        val demo = Outer.Nested().foo()
+        val demo = Outer().Inner().foo()
         println(demo)
         // exemple 2
-        val chargement = Palette(3)
-        chargement.poids[0] = Palette.Item1(50)
-        chargement.volume[0] = Palette.Item2(3)
-        chargement.poids[1] = Palette.Item1(100)
-        chargement.volume[1] = Palette.Item2(5)
-        chargement.poids[2] = Palette.Item1(200)
-        chargement.volume[2] = Palette.Item2(8)
-
-        for (i in 0..2) {
-            chargement.showPalette(i)
-        }
+        val palette = Palette(8)
+        val nbProduit = palette.Caisse(12).Produit().nbProduit
+        println("Nombre de produits transportés : ${nbProduit}")
     }
 }
 
