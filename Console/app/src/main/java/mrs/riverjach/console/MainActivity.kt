@@ -10,7 +10,7 @@ import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.tooling.preview.Preview
-import mrs.riverjach.console.mesclasses.User
+import mrs.riverjach.console.mesclasses.nestedclass.Outer
 import mrs.riverjach.console.ui.theme.ConsoleTheme
 
 class MainActivity : ComponentActivity() {
@@ -28,15 +28,8 @@ class MainActivity : ComponentActivity() {
             }
         }
 
-        val bob = User("Bob", 12)
-        val tom = User("Tom", 16)
-        println("${tom}")
-        println("${bob}")
-        val tom2 = tom.copy()
-        println(tom == tom2)
-        val bob2 = bob.copy(age = 13)
-        println("${bob2}")
-        println(bob == bob2)
+        val demo = Outer.Nested().foo()
+        println(demo)
 
     }
 }
