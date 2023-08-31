@@ -10,7 +10,7 @@ import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.tooling.preview.Preview
-import mrs.riverjach.console.mesclasses.lateinit.User
+import mrs.riverjach.console.mesclasses.companionobject.User
 import mrs.riverjach.console.ui.theme.ConsoleTheme
 
 class MainActivity : ComponentActivity() {
@@ -28,9 +28,11 @@ class MainActivity : ComponentActivity() {
             }
         }
 
-        val user = User("Tom", 16)
-        user.pseudo = "Elyor"
-        user.showUser()
+        val user1 = User.createUser()
+        User.showUser(user1)
+        println(User.name_default)
+        val user2 = User("Tom", 16)
+        User.showUser(user2)
     }
 }
 
