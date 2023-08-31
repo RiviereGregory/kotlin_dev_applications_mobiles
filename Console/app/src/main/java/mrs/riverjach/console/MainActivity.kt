@@ -10,8 +10,7 @@ import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.tooling.preview.Preview
-import mrs.riverjach.console.mesclasses.generique.Box
-import mrs.riverjach.console.mesclasses.generique.demo
+import mrs.riverjach.console.mesclasses.lateinit.User
 import mrs.riverjach.console.ui.theme.ConsoleTheme
 
 class MainActivity : ComponentActivity() {
@@ -29,19 +28,9 @@ class MainActivity : ComponentActivity() {
             }
         }
 
-        val tab1 = arrayOf(1, 2, 3, 4)
-        val tab2 = arrayOf("Kotlin", "Langage", "Android")
-        val tab3 = arrayOf(1.02, 2.1, 3.1415)
-        println(demo(tab1))
-        println(demo(tab2))
-        println(demo(tab3))
-
-        val x = Box<Int>(5)
-        val y = Box<String>("Java")
-        println("x contient la valeur : ${x.value}")
-        println("y contient la valeur : ${y.value}")
-        y.set("Kotlin")
-        println("y contient la valeur : ${y.value}")
+        val user = User("Tom", 16)
+        user.pseudo = "Elyor"
+        user.showUser()
     }
 }
 
