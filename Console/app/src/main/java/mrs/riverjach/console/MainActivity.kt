@@ -10,8 +10,7 @@ import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.tooling.preview.Preview
-import mrs.riverjach.console.mesclasses.innerclass.Outer
-import mrs.riverjach.console.mesclasses.innerclass.Palette
+import mrs.riverjach.console.mesclasses.generique.demo
 import mrs.riverjach.console.ui.theme.ConsoleTheme
 
 class MainActivity : ComponentActivity() {
@@ -29,13 +28,12 @@ class MainActivity : ComponentActivity() {
             }
         }
 
-        // exemple 1
-        val demo = Outer().Inner().foo()
-        println(demo)
-        // exemple 2
-        val palette = Palette(8)
-        val nbProduit = palette.Caisse(12).Produit().nbProduit
-        println("Nombre de produits transportés : ${nbProduit}")
+        val tab1 = arrayOf(1, 2, 3, 4)
+        val tab2 = arrayOf("Kotlin", "Langage", "Android")
+        val tab3 = arrayOf(1.02, 2.1, 3.1415)
+        println(demo(tab1))
+        println(demo(tab2))
+        println(demo(tab3))
     }
 }
 
