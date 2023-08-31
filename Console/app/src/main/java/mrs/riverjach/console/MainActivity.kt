@@ -10,9 +10,7 @@ import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.tooling.preview.Preview
-import mrs.riverjach.console.mesclasses.cast.demoSmartCast
-import mrs.riverjach.console.mesclasses.cast.longueurStringSafeCast
-import mrs.riverjach.console.mesclasses.cast.longueurStringUnsafeCast
+import mrs.riverjach.console.mesclasses.User
 import mrs.riverjach.console.ui.theme.ConsoleTheme
 
 class MainActivity : ComponentActivity() {
@@ -30,25 +28,15 @@ class MainActivity : ComponentActivity() {
             }
         }
 
-        val x = "Kotlin"
-        val y = 18
-        val z = intArrayOf(1, 5, 10)
-        val a = 1.2F
-        demoSmartCast(x)
-        demoSmartCast(y)
-        demoSmartCast(z)
-        demoSmartCast(a)
-
-        // unsafe Cast
-        val xx = 1
-        // xx as String -> CastClass exception
-        val yy: String = xx.toString()
-        longueurStringUnsafeCast(yy)
-
-        // Safe Cast
-        val yyy: String? = xx as? String
-        longueurStringSafeCast(yyy)
-        println(yyy)
+        val bob = User("Bob", 12)
+        val tom = User("Tom", 16)
+        println("${tom}")
+        println("${bob}")
+        val tom2 = tom.copy()
+        println(tom == tom2)
+        val bob2 = bob.copy(age = 13)
+        println("${bob2}")
+        println(bob == bob2)
 
     }
 }
