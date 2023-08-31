@@ -10,6 +10,7 @@ import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.tooling.preview.Preview
+import mrs.riverjach.console.mesclasses.generique.Box
 import mrs.riverjach.console.mesclasses.generique.demo
 import mrs.riverjach.console.ui.theme.ConsoleTheme
 
@@ -34,6 +35,13 @@ class MainActivity : ComponentActivity() {
         println(demo(tab1))
         println(demo(tab2))
         println(demo(tab3))
+
+        val x = Box<Int>(5)
+        val y = Box<String>("Java")
+        println("x contient la valeur : ${x.value}")
+        println("y contient la valeur : ${y.value}")
+        y.set("Kotlin")
+        println("y contient la valeur : ${y.value}")
     }
 }
 
