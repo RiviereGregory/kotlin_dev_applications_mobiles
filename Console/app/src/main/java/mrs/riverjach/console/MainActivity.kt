@@ -10,7 +10,7 @@ import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.tooling.preview.Preview
-import mrs.riverjach.console.mesclasses.companionobject.User
+import mrs.riverjach.console.mesclasses.interop.User
 import mrs.riverjach.console.ui.theme.ConsoleTheme
 
 class MainActivity : ComponentActivity() {
@@ -28,11 +28,12 @@ class MainActivity : ComponentActivity() {
             }
         }
 
-        val user1 = User.createUser()
-        User.showUser(user1)
-        println(User.name_default)
-        val user2 = User("Tom", 16)
-        User.showUser(user2)
+        // interop Java vers kotlin
+        val user1 = User()
+        user1.name = "Tom"
+        user1.age = 16
+        println("Nom : ${user1.name} - Age : ${user1.age}")
+        println("Ville : ${user1.adresse.ville} - Pays : ${user1.adresse.pays}")
     }
 }
 
