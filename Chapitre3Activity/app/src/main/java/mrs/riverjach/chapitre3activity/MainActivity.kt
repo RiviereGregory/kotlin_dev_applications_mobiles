@@ -4,16 +4,17 @@ import android.content.Intent
 import android.os.Bundle
 import android.widget.Button
 import androidx.appcompat.app.AppCompatActivity
+import mrs.riverjach.chapitre3activity.metier.User
 
 class MainActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
-        val button: Button = findViewById(R.id.start_activity)
+        val button: Button = findViewById(R.id.startButton)
+        val user = User("Tom", 16)
         button.setOnClickListener {
-            val intent = Intent(this, Activity2::class.java)
-            intent.putExtra("name", "Tom")
-            intent.putExtra("age", 16)
+            val intent = Intent(this, UserActivity::class.java)
+            intent.putExtra("user", user)
             startActivity(intent)
         }
     }

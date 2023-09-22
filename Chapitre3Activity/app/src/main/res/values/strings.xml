@@ -1,6 +1,7 @@
 <resources>
     <string name="app_name">Chapitre3Activity</string>
     <string name="hello_word">Hello Word!</string>
-    <string name="start_activity">Start Activity</string>
-    <string name="activity_1">activity 1</string>
+    <string name="start_button">START USER</string>
+    <string name="name">name</string>
+    <string name="age">age</string>
 </resources>

@@ -6,14 +6,21 @@
     android:background="@color/grey"
     android:gravity="center"
     android:orientation="vertical"
-    tools:context=".MainActivity">
+    tools:context=".UserActivity">
 
-
-    <Button
-        android:id="@+id/startButton"
+    <TextView
+        android:id="@+id/name"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:background="#080"
-        android:text="@string/start_button" />
+        android:text="@string/name"
+        android:textColor="@color/black" />
+
+    <TextView
+        android:id="@+id/age"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/age"
+        android:textColor="@color/black" />
+
 
 </LinearLayout>
