@@ -5,6 +5,9 @@
     <string name="button1">wrap_content-wrap_content</string>
     <string name="button2">match_parent-wrap_content</string>
     <string name="button3">match_parent-match_parent</string>
+    <string name="button11">Size dp Font dp</string>
+    <string name="button12">Size dp Font sp</string>
+    <string name="button13">Size px Font px</string>
     <string name="name">name</string>
     <string name="age">age</string>
 </resources>
