@@ -12,6 +12,8 @@ class MainActivity : AppCompatActivity() {
         val button: Button = findViewById(R.id.start_activity)
         button.setOnClickListener {
             val intent = Intent(this, Activity2::class.java)
+            intent.putExtra("name", "Tom")
+            intent.putExtra("age", 16)
             startActivity(intent)
         }
     }
