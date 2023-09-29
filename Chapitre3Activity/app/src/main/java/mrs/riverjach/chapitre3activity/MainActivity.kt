@@ -13,6 +13,7 @@ class MainActivity : AppCompatActivity() {
         val button: Button = findViewById(R.id.startButton)
         val button1: Button = findViewById(R.id.button1)
         val button2: Button = findViewById(R.id.button2)
+        val button3: Button = findViewById(R.id.button3)
         val user = User("Tom", 16)
         button.setOnClickListener {
             val intent = Intent(this, UserActivity::class.java)
@@ -25,6 +26,10 @@ class MainActivity : AppCompatActivity() {
         }
         button2.setOnClickListener {
             val intent = Intent(this, LinearLayoutSample::class.java)
+            startActivity(intent)
+        }
+        button3.setOnClickListener {
+            val intent = Intent(this, LinearLayoutSampleMozaic::class.java)
             startActivity(intent)
         }
     }
