@@ -12,6 +12,7 @@ class MainActivity : AppCompatActivity() {
         setContentView(R.layout.activity_main)
         val button: Button = findViewById(R.id.startButton)
         val button1: Button = findViewById(R.id.button1)
+        val button2: Button = findViewById(R.id.button2)
         val user = User("Tom", 16)
         button.setOnClickListener {
             val intent = Intent(this, UserActivity::class.java)
@@ -20,6 +21,10 @@ class MainActivity : AppCompatActivity() {
         }
         button1.setOnClickListener {
             val intent = Intent(this, DimensionUnites::class.java)
+            startActivity(intent)
+        }
+        button2.setOnClickListener {
+            val intent = Intent(this, LinearLayoutSample::class.java)
             startActivity(intent)
         }
     }
