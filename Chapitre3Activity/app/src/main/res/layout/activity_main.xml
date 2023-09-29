@@ -13,7 +13,7 @@
         android:id="@+id/startButton"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:background="#080"
+        android:background="@color/vert"
         android:text="@string/start_button" />
 
     <LinearLayout
