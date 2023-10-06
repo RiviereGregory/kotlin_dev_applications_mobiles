@@ -24,4 +24,5 @@
     <string name="composant_g">composant G</string>
     <string name="play">PLAY</string>
     <string name="mon_textview">Mon TextView</string>
+    <string name="confirmation">Confirmation</string>
 </resources>

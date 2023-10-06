@@ -71,6 +71,13 @@
             android:layout_height="wrap_content"
             android:background="@color/teal_700"
             android:text="@string/composant_g" />
+
+        <Button
+            android:id="@+id/button7"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:background="@color/grey_light"
+            android:text="@string/confirmation" />
     </LinearLayout>
 
     <Button

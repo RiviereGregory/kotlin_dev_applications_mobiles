@@ -4,6 +4,7 @@ import android.content.Intent
 import android.os.Bundle
 import android.widget.Button
 import androidx.appcompat.app.AppCompatActivity
+import mrs.riverjach.chapitre3activity.dialogs.ConfirmDialogFragment
 import mrs.riverjach.chapitre3activity.metier.User
 
 class MainActivity : AppCompatActivity() {
@@ -17,6 +18,7 @@ class MainActivity : AppCompatActivity() {
         val button4: Button = findViewById(R.id.button4)
         val button5: Button = findViewById(R.id.button5)
         val button6: Button = findViewById(R.id.button6)
+        val button7: Button = findViewById(R.id.button7)
         val user = User("Tom", 16)
         button.setOnClickListener {
             val intent = Intent(this, UserActivity::class.java)
@@ -46,6 +48,10 @@ class MainActivity : AppCompatActivity() {
         button6.setOnClickListener {
             val intent = Intent(this, ComposantGraphics::class.java)
             startActivity(intent)
+        }
+        button7.setOnClickListener {
+            val fragment = ConfirmDialogFragment()
+            fragment.show(supportFragmentManager, "confirm")
         }
     }
 }
