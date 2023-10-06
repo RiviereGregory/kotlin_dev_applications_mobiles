@@ -16,6 +16,7 @@
         android:layout_height="wrap_content"
         android:layout_alignTop="@id/btn1"
         android:layout_toRightOf="@id/btn1"
+        android:layout_marginLeft="50dp"
         android:text="@string/btn2" />
 
     <Button

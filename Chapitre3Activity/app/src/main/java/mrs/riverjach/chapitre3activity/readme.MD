@@ -11,4 +11,10 @@ Utilisation des poids dans le linearLayout
 ![img_3.png](img_3.png)
 
 Exemple de mozaic  
-![img_4.png](img_4.png)  
+![img_4.png](img_4.png)
+
+Exemple de relativelayout sans margin  
+![img_5.png](img_5.png)
+
+Exemple de relativelayout avec margin sur btn2  
+![img_6.png](img_6.png)  
