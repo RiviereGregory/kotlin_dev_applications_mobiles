@@ -20,4 +20,8 @@
     <string name="relativelayout1">sample 2</string>
     <string name="btn4">btn4</string>
     <string name="btn5">btn5</string>
+    <string name="button">Button</string>
+    <string name="composant_g">composant G</string>
+    <string name="play">PLAY</string>
+    <string name="mon_textview">Mon TextView</string>
 </resources>

@@ -64,6 +64,13 @@
             android:layout_height="wrap_content"
             android:background="@color/teal_200"
             android:text="@string/relativelayout1" />
+
+        <Button
+            android:id="@+id/button6"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:background="@color/teal_700"
+            android:text="@string/composant_g" />
     </LinearLayout>
 
     <Button
