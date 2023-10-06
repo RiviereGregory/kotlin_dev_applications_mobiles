@@ -17,4 +17,7 @@ Exemple de relativelayout sans margin
 ![img_5.png](img_5.png)
 
 Exemple de relativelayout avec margin sur btn2  
-![img_6.png](img_6.png)  
+![img_6.png](img_6.png)
+
+Exemple de relativelayout en étoile  
+![img_7.png](img_7.png)  
