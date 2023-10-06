@@ -30,11 +30,13 @@
         android:textStyle="bold|italic" />
 
     <ImageView
+        android:id="@+id/monImage"
         android:layout_width="100dp"
         android:layout_height="100dp"
         android:src="@drawable/bonuspack_bubble" />
 
     <CheckBox
+        android:id="@+id/maCheckBox"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="Ma CheckBox"
