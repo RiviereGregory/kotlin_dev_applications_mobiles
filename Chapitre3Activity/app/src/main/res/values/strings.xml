@@ -13,4 +13,8 @@
     <string name="linearlayout">LinearLayout</string>
     <string name="linearlayoutmozaic">LinearLayoutMozaic</string>
     <string name="dimensionunites">DimensionUnites</string>
+    <string name="relativelayout">relativeLayout</string>
+    <string name="btn1">btn1</string>
+    <string name="btn3">btn3</string>
+    <string name="btn2">btn2</string>
 </resources>

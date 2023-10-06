@@ -13,6 +13,9 @@
         android:theme="@style/Theme.AppCompat"
         tools:targetApi="31">
         <activity
+            android:name=".RelativeLayoutSample"
+            android:exported="false" />
+        <activity
             android:name=".LinearLayoutSampleMozaic"
             android:exported="false" />
         <activity
