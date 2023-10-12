@@ -5,6 +5,7 @@ import android.os.Bundle
 import android.widget.Button
 import androidx.appcompat.app.AppCompatActivity
 import mrs.riverjach.chapitre3activity.dialogs.ConfirmDialogFragment
+import mrs.riverjach.chapitre3activity.dialogs.ConfirmFileDelete
 import mrs.riverjach.chapitre3activity.metier.User
 
 class MainActivity : AppCompatActivity() {
@@ -51,6 +52,17 @@ class MainActivity : AppCompatActivity() {
         }
         button7.setOnClickListener {
             val fragment = ConfirmDialogFragment()
+            fragment.listener = object :
+                ConfirmDialogFragment.ConfirmDeleteListener {
+                override fun onDialogPositiveClick() {
+                    val fragment = ConfirmFileDelete()
+                    fragment.show(supportFragmentManager, "ConfirmFileDelete")
+                }
+
+                override fun onDialogNegativeClick() {
+                    // Nothing
+                }
+            }
             fragment.show(supportFragmentManager, "confirm")
         }
     }
