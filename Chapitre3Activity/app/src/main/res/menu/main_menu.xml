@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+
+    <item
+        android:id="@+id/action_bin"
+        android:icon="@drawable/delete_white_24dp"
+        android:title="@string/corbeille"
+        app:showAsAction="always" />
+
+    <item
+        android:id="@+id/action_camera"
+        android:icon="@drawable/videocam_white_24dp"
+        android:title="@string/cam_ra"
+        app:showAsAction="always" />
+
+    <item
+        android:id="@+id/action_folder"
+        android:icon="@drawable/chat_white_24dp"
+        android:title="@string/dossier"
+        app:showAsAction="ifRoom" />
+
+    <item
+        android:id="@+id/action_video"
+        android:title="Vidéo"
+        app:showAsAction="never" />
+
+</menu>

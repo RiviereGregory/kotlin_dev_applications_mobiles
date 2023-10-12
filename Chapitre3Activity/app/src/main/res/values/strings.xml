@@ -28,4 +28,7 @@
     <string name="musiques">Musiques</string>
     <string name="vid_os">Vidéos</string>
     <string name="documents">Documents</string>
+    <string name="corbeille">Corbeille</string>
+    <string name="cam_ra">caméra</string>
+    <string name="dossier">Dossier</string>
 </resources>
