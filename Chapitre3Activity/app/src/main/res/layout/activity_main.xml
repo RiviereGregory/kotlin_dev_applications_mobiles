@@ -35,7 +35,7 @@
             android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:layout_weight="0.33"
-            android:background="@color/purple_700"
+            android:background="?attr/colorPrimary"
             android:text="@string/dimensionunites" />
 
         <Button
@@ -43,7 +43,7 @@
             android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:layout_weight="0.27"
-            android:background="@color/purple_200"
+            android:background="?attr/colorOnPrimary"
             android:text="@string/linearlayout" />
 
         <Button
@@ -51,7 +51,7 @@
             android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:layout_weight="0.4"
-            android:background="@color/purple_500"
+            android:background="?attr/colorSecondaryContainer"
             android:text="@string/linearlayoutmozaic" />
     </LinearLayout>
 
