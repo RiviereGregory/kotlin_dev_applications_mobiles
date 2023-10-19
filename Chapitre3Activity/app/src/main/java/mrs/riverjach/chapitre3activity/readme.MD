@@ -23,4 +23,7 @@ Exemple de relativelayout en étoile
 ![img_7.png](img_7.png)
 
 Exemple composant  
-![img_8.png](img_8.png)  
+![img_8.png](img_8.png)
+
+Exemple création de shpae pour arrondir bouton (drawable/roundbutton.xml)  
+![img_9.png](img_9.png)  
