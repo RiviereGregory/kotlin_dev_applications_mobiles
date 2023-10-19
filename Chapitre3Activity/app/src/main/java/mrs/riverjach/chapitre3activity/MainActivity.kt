@@ -7,6 +7,7 @@ import android.view.MenuItem
 import android.widget.Button
 import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
+import androidx.appcompat.widget.Toolbar
 import mrs.riverjach.chapitre3activity.dialogs.ConfirmDialogFragment
 import mrs.riverjach.chapitre3activity.dialogs.ConfirmFileDelete
 import mrs.riverjach.chapitre3activity.metier.User
@@ -15,6 +16,10 @@ class MainActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
+        // indique que la toolbar peut accueillir un actionMenu
+        val toolBar: Toolbar = findViewById(R.id.mytoolbar)
+        setSupportActionBar(toolBar)
+
         val button: Button = findViewById(R.id.startButton)
         val button1: Button = findViewById(R.id.button1)
         val button2: Button = findViewById(R.id.button2)

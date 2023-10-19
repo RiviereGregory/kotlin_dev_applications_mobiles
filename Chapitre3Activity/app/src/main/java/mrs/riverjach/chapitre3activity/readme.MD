@@ -26,4 +26,7 @@ Exemple composant
 ![img_8.png](img_8.png)
 
 Exemple création de shpae pour arrondir bouton (drawable/roundbutton.xml)  
-![img_9.png](img_9.png)  
+![img_9.png](img_9.png)
+
+Exemple création d'une toolBar custom  
+![img_10.png](img_10.png)  
