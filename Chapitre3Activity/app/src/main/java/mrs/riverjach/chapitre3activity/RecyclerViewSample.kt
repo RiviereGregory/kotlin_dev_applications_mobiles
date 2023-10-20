@@ -2,6 +2,7 @@ package mrs.riverjach.chapitre3activity
 
 import android.os.Bundle
 import android.view.View
+import android.widget.Button
 import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
 import androidx.recyclerview.widget.LinearLayoutManager
@@ -70,6 +71,7 @@ class RecyclerViewSample : AppCompatActivity(), View.OnClickListener {
         "0102039905"
     )
     val adapter = UserAdapter(names, tels, this)
+    var upper = false
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -77,6 +79,21 @@ class RecyclerViewSample : AppCompatActivity(), View.OnClickListener {
         val recyclerView = findViewById<RecyclerView>(R.id.recycler_view)
         recyclerView.layoutManager = LinearLayoutManager(this)
         recyclerView.adapter = adapter
+
+        val button = findViewById<Button>(R.id.myUpload)
+        button.setOnClickListener { majRecyclerView() }
+    }
+
+    private fun majRecyclerView() {
+        for ((index, name) in names.withIndex()) {
+            if (upper) {
+                names[index] = name.toLowerCase()
+            } else {
+                names[index] = name.toUpperCase()
+            }
+        }
+        upper = !upper
+        adapter.notifyDataSetChanged()
     }
 
     override fun onClick(view: View?) {
