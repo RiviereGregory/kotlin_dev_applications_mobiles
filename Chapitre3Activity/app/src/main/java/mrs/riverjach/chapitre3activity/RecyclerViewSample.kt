@@ -1,12 +1,14 @@
 package mrs.riverjach.chapitre3activity
 
 import android.os.Bundle
+import android.view.View
+import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import mrs.riverjach.chapitre3activity.adapter.UserAdapter
 
-class RecyclerViewSample : AppCompatActivity() {
+class RecyclerViewSample : AppCompatActivity(), View.OnClickListener {
     var names = arrayOf<String>(
         "aa",
         "bb",
@@ -67,7 +69,7 @@ class RecyclerViewSample : AppCompatActivity() {
         "0102030488",
         "0102039905"
     )
-    val adapter = UserAdapter(names, tels)
+    val adapter = UserAdapter(names, tels, this)
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -75,5 +77,15 @@ class RecyclerViewSample : AppCompatActivity() {
         val recyclerView = findViewById<RecyclerView>(R.id.recycler_view)
         recyclerView.layoutManager = LinearLayoutManager(this)
         recyclerView.adapter = adapter
+    }
+
+    override fun onClick(view: View?) {
+        if (view?.tag != null) {
+            val index = view.tag as Int
+            val name = names[index]
+            val tel = tels[index]
+            Toast.makeText(this, "Nom du contact: ${name} Téléphone : ${tel}", Toast.LENGTH_LONG)
+                .show()
+        }
     }
 }
