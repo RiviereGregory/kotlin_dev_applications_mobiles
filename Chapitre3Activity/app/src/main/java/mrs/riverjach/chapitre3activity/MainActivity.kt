@@ -28,6 +28,7 @@ class MainActivity : AppCompatActivity() {
         val button5: Button = findViewById(R.id.button5)
         val button6: Button = findViewById(R.id.button6)
         val button7: Button = findViewById(R.id.button7)
+        val button8: Button = findViewById(R.id.button8)
         val user = User("Tom", 16)
         button.setOnClickListener {
             val intent = Intent(this, UserActivity::class.java)
@@ -72,6 +73,10 @@ class MainActivity : AppCompatActivity() {
                 }
             }
             fragment.show(supportFragmentManager, "confirm")
+        }
+        button8.setOnClickListener {
+            val intent = Intent(this, RecyclerViewSample::class.java)
+            startActivity(intent)
         }
     }
 

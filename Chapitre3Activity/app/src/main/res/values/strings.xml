@@ -31,4 +31,5 @@
     <string name="corbeille">Corbeille</string>
     <string name="cam_ra">caméra</string>
     <string name="dossier">Dossier</string>
+    <string name="recyclerview">RecyclerView</string>
 </resources>
