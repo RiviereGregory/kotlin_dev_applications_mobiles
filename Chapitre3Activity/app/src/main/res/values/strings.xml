@@ -45,4 +45,9 @@
     <string name="egalit">Egalité</string>
     <string name="tom_a_gagn">Tom a gagné</string>
     <string name="lola_a_gagn">Lola a gagné</string>
+    <string name="tri_s_lection">tri sélection</string>
+    <string name="tri_m_thode_sort">tri méthode sort</string>
+    <string name="tri_rapide">tri rapide</string>
+    <string name="tri_bulle">tri à bulle</string>
+    <string name="performance_tri">performance tri</string>
 </resources>

@@ -30,6 +30,7 @@ class MainActivity : AppCompatActivity() {
         val button7: Button = findViewById(R.id.button7)
         val button8: Button = findViewById(R.id.button8)
         val button9: Button = findViewById(R.id.button9)
+        val button10: Button = findViewById(R.id.button10)
         val user = User("Tom", 16)
         button.setOnClickListener {
             val intent = Intent(this, UserActivity::class.java)
@@ -81,6 +82,10 @@ class MainActivity : AppCompatActivity() {
         }
         button9.setOnClickListener {
             val intent = Intent(this, TomAndLola::class.java)
+            startActivity(intent)
+        }
+        button10.setOnClickListener {
+            val intent = Intent(this, PerformanceTri::class.java)
             startActivity(intent)
         }
     }

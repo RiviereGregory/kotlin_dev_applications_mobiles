@@ -13,6 +13,9 @@
         android:theme="@style/Theme.Chapitre3Activity"
         tools:targetApi="31">
         <activity
+            android:name=".PerformanceTri"
+            android:exported="false" />
+        <activity
             android:name=".TomAndLola"
             android:exported="false" />
         <activity
