@@ -29,6 +29,7 @@ class MainActivity : AppCompatActivity() {
         val button6: Button = findViewById(R.id.button6)
         val button7: Button = findViewById(R.id.button7)
         val button8: Button = findViewById(R.id.button8)
+        val button9: Button = findViewById(R.id.button9)
         val user = User("Tom", 16)
         button.setOnClickListener {
             val intent = Intent(this, UserActivity::class.java)
@@ -76,6 +77,10 @@ class MainActivity : AppCompatActivity() {
         }
         button8.setOnClickListener {
             val intent = Intent(this, RecyclerViewSample::class.java)
+            startActivity(intent)
+        }
+        button9.setOnClickListener {
+            val intent = Intent(this, TomAndLola::class.java)
             startActivity(intent)
         }
     }

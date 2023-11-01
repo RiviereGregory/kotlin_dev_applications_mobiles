@@ -33,4 +33,16 @@
     <string name="dossier">Dossier</string>
     <string name="recyclerview">RecyclerView</string>
     <string name="maj_recyclerview">MAJ RecyclerView</string>
+    <string name="tomandlola">Tom And Lola</string>
+    <string name="lancer">lancer</string>
+    <string name="score_lola">Score Lola : </string>
+    <string name="score_tom">Score Tom : </string>
+    <string name="d_2">Dé 2 : </string>
+    <string name="d_1">Dé 1 : </string>
+    <string name="separator">___</string>
+    <string name="total">Total :</string>
+    <string name="nombre_de_tour">nombre de tour :</string>
+    <string name="egalit">Egalité</string>
+    <string name="tom_a_gagn">Tom a gagné</string>
+    <string name="lola_a_gagn">Lola a gagné</string>
 </resources>
