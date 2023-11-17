@@ -16,14 +16,16 @@ class NoteAdapter(
     val itemClickListener: View.OnClickListener
 ) : RecyclerView.Adapter<NoteAdapter.ViewHolder>() {
 
-    val color0 = rgb(211, 248, 226)
-    val color1 = rgb(228, 193, 249)
-    val color2 = rgb(246, 148, 193)
-    val color3 = rgb(237, 231, 177)
-    val color4 = rgb(71, 152, 41)
-    val color5 = rgb(253, 225, 0)
-    val color6 = rgb(240, 240, 240)
-    val color = arrayOf(color0, color1, color2, color3, color4, color5, color6)
+    companion object {
+        val color0 = rgb(211, 248, 226)
+        val color1 = rgb(228, 193, 249)
+        val color2 = rgb(246, 148, 193)
+        val color3 = rgb(237, 231, 177)
+        val color4 = rgb(71, 152, 41)
+        val color5 = rgb(253, 225, 0)
+        val color6 = rgb(240, 240, 240)
+        val color = arrayOf(color0, color1, color2, color3, color4, color5, color6)
+    }
 
     class ViewHolder(itemView: View) : RecyclerView.ViewHolder(itemView) {
         val cardView1 = itemView.findViewById<CardView>(R.id.card_view1)

@@ -1,11 +1,13 @@
 package mrs.riverjach.blocnote
 
+import android.content.Intent
 import android.os.Bundle
 import android.view.View
 import android.widget.Toast
 import androidx.activity.ComponentActivity
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
+import mrs.riverjach.blocnote.activities.DetailNote
 import mrs.riverjach.blocnote.adapter.NoteAdapter
 import mrs.riverjach.blocnote.model.Note
 
@@ -41,7 +43,18 @@ class MainActivity : ComponentActivity(), View.OnClickListener {
     override fun onClick(view: View?) {
         if (view?.tag != null) {
             val chaine = view.tag as String
-            Toast.makeText(this, "tag: ${chaine}", Toast.LENGTH_SHORT).show()
+            val chaineList = chaine.split(";")
+            val pos = chaineList[1].toInt()
+            Toast.makeText(this, "tag : ${pos}", Toast.LENGTH_SHORT).show()
+
+            editNote(pos)
         }
+    }
+
+    private fun editNote(position: Int) {
+        val intent = Intent(this, DetailNote::class.java)
+        intent.putExtra("note", notes[position])
+        intent.putExtra("noteindex", position)
+        startActivity(intent)
     }
 }

@@ -2,4 +2,6 @@
     <string name="app_name">BlocNote</string>
     <string name="ceci_est_le_titre_de_la_note">ceci est le titre de la note</string>
     <string name="contenu_de_la_note">contenu de la note</string>
+    <string name="titre_de_la_note">Titre de la note</string>
+    <string name="cat_gorie">Catégorie</string>
 </resources>
