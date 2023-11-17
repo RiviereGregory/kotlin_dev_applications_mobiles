@@ -4,4 +4,6 @@
     <string name="contenu_de_la_note">contenu de la note</string>
     <string name="titre_de_la_note">Titre de la note</string>
     <string name="cat_gorie">Catégorie</string>
+    <string name="blocnote">BlocNote</string>
+    <string name="note_mode_dition">Note : mode édition</string>
 </resources>

@@ -4,6 +4,7 @@ import android.os.Bundle
 import android.widget.RelativeLayout
 import android.widget.TextView
 import androidx.appcompat.app.AppCompatActivity
+import androidx.appcompat.widget.Toolbar
 import mrs.riverjach.blocnote.R
 import mrs.riverjach.blocnote.adapter.NoteAdapter
 import mrs.riverjach.blocnote.model.Note
@@ -32,5 +33,9 @@ class DetailNote : AppCompatActivity() {
         textViewCategorie.text = note.cat.toString()
         textViewContenu.text = note.contenu
         rLayout.setBackgroundColor(NoteAdapter.color[note.cat])
+
+        val toolbar = findViewById<Toolbar>(R.id.toolbar)
+        setSupportActionBar(toolbar)
+        supportActionBar!!.setDisplayHomeAsUpEnabled(true)
     }
 }

@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:id="@+id/layout"
     android:layout_width="match_parent"
@@ -7,10 +8,20 @@
     android:background="?attr/colorPrimary"
     tools:context=".activities.DetailNote">
 
+    <androidx.appcompat.widget.Toolbar
+        android:id="@+id/toolbar"
+        android:layout_width="match_parent"
+        android:layout_height="?attr/actionBarSize"
+        android:background="@color/grey_dark"
+        android:theme="@style/ToolbarTheme"
+        app:title="@string/note_mode_dition"
+        app:titleTextAppearance="@style/Toolbar.TilteText" />
+
     <EditText
         android:id="@+id/titre"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
+        android:layout_below="@id/toolbar"
         android:fontFamily="sans-serif-condensed"
         android:text="@string/titre_de_la_note"
         android:textSize="20sp"

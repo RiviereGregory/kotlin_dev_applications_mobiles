@@ -1,6 +1,16 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
 
-    <style name="Theme.BlocNote" parent="Theme.AppCompat.Light" />
+    <style name="Theme.BlocNote" parent="Theme.AppCompat.Light.NoActionBar" />
+
+
+    <style name="ToolbarTheme" parent="@style/Theme.AppCompat.Light.DarkActionBar">
+        <item name="android:textColorPrimary">@color/white</item>
+    </style>
+
+    <style name="Toolbar.TilteText" parent="TextAppearance.Widget.AppCompat.Toolbar.Title">
+        <item name="android:textSize">20sp</item>
+        <item name="android:textStyle">italic|bold</item>
+    </style>
 
 </resources>

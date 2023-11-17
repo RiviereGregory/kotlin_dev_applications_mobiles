@@ -10,4 +10,5 @@
     <color name="violet">#CCCCFF</color>
     <color name="vert">#CCFFCC</color>
     <color name="rose">#FFCCCC</color>
+    <color name="grey_dark">#555555</color>
 </resources>
