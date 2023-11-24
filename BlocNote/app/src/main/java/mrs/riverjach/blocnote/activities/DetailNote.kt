@@ -14,6 +14,18 @@ import mrs.riverjach.blocnote.model.Note
 
 class DetailNote : AppCompatActivity() {
 
+    companion object {
+        var listeCategorie = listOf(
+            "A faire",
+            "Liste de courses",
+            "Rendez-vous pro",
+            "Rendez-vous perso",
+            "Lien internet",
+            "Contact",
+            "Loisirs"
+        )
+    }
+
     lateinit var note: Note
     lateinit var textViewTitre: TextView
     lateinit var textViewCategorie: TextView
@@ -33,7 +45,7 @@ class DetailNote : AppCompatActivity() {
         rLayout = findViewById(R.id.layout)
 
         textViewTitre.text = note.titre
-        textViewCategorie.text = note.cat.toString()
+        textViewCategorie.text = listeCategorie[note.cat]
         textViewContenu.text = note.contenu
         rLayout.setBackgroundColor(NoteAdapter.color[note.cat])
 
