@@ -1,5 +1,6 @@
 package mrs.riverjach.blocnote
 
+import android.app.Activity
 import android.content.Intent
 import android.os.Bundle
 import android.view.View
@@ -55,6 +56,26 @@ class MainActivity : ComponentActivity(), View.OnClickListener {
         val intent = Intent(this, DetailNote::class.java)
         intent.putExtra("note", notes[position])
         intent.putExtra("noteindex", position)
-        startActivity(intent)
+        startActivityForResult(intent, DetailNote.REQUEST_EDIT_NOTE)
+    }
+
+    override fun onActivityResult(requestCode: Int, resultCode: Int, data: Intent?) {
+        if (resultCode != Activity.RESULT_OK || data == null) {
+            return
+        }
+        when (requestCode) {
+            DetailNote.REQUEST_EDIT_NOTE -> traitementRetour(data)
+        }
+    }
+
+    private fun traitementRetour(data: Intent) {
+        val noteIndex = data.getIntExtra("noteindex", -1)
+        val note = data.getParcelableExtra<Note>("note")!!
+        saveNote(note, noteIndex)
+    }
+
+    private fun saveNote(note: Note, noteIndex: Int) {
+        notes[noteIndex] = note
+        adapter.notifyDataSetChanged()
     }
 }

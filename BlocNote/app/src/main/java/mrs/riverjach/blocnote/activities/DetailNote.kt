@@ -1,9 +1,12 @@
 package mrs.riverjach.blocnote.activities
 
+import android.app.Activity
+import android.content.Intent
 import android.os.Bundle
 import android.view.Menu
 import android.view.MenuItem
 import android.view.View
+import android.widget.RadioButton
 import android.widget.RadioGroup
 import android.widget.RelativeLayout
 import android.widget.TextView
@@ -17,6 +20,7 @@ import mrs.riverjach.blocnote.model.Note
 class DetailNote : AppCompatActivity(), View.OnClickListener {
 
     companion object {
+        var REQUEST_EDIT_NOTE = 1
         var listeCategorie = listOf(
             "A faire",
             "Liste de courses",
@@ -69,6 +73,7 @@ class DetailNote : AppCompatActivity(), View.OnClickListener {
             R.id.action_save -> {
                 Toast.makeText(this, getString(R.string.icone_save_cliqu), Toast.LENGTH_SHORT)
                     .show()
+                saveNote()
                 true
             }
 
@@ -81,5 +86,24 @@ class DetailNote : AppCompatActivity(), View.OnClickListener {
             Toast.makeText(this, getString(R.string.textview_cliqu), Toast.LENGTH_SHORT).show()
             radioGroup.visibility = View.VISIBLE
         }
+    }
+
+    fun saveNote() {
+        note.titre = textViewTitre.text.toString()
+        note.contenu = textViewContenu.text.toString()
+        when {
+            findViewById<RadioButton>(R.id.radio0).isChecked -> note.cat = 0
+            findViewById<RadioButton>(R.id.radio1).isChecked -> note.cat = 1
+            findViewById<RadioButton>(R.id.radio2).isChecked -> note.cat = 2
+            findViewById<RadioButton>(R.id.radio3).isChecked -> note.cat = 3
+            findViewById<RadioButton>(R.id.radio4).isChecked -> note.cat = 4
+            findViewById<RadioButton>(R.id.radio5).isChecked -> note.cat = 5
+            findViewById<RadioButton>(R.id.radio6).isChecked -> note.cat = 6
+        }
+        intent = Intent()
+        intent.putExtra("note", note)
+        intent.putExtra("noteindex", noteIndex)
+        setResult(Activity.RESULT_OK, intent)
+        finish()
     }
 }
