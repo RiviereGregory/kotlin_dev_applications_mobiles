@@ -60,13 +60,14 @@ class DetailNote : AppCompatActivity() {
     }
 
     override fun onOptionsItemSelected(item: MenuItem): Boolean {
-        when (item.itemId) {
+        return when (item.itemId) {
             R.id.action_save -> {
-                Toast.makeText(this, "icone save cliqué", Toast.LENGTH_SHORT).show()
-                return true
+                Toast.makeText(this, getString(R.string.icone_save_cliqu), Toast.LENGTH_SHORT)
+                    .show()
+                true
             }
 
-            else -> return super.onOptionsItemSelected(item)
+            else -> super.onOptionsItemSelected(item)
         }
     }
 }
