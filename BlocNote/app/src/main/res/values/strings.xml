@@ -6,4 +6,5 @@
     <string name="cat_gorie">Catégorie</string>
     <string name="blocnote">BlocNote</string>
     <string name="note_mode_dition">Note : mode édition</string>
+    <string name="enregistrer">Enregistrer</string>
 </resources>

@@ -1,8 +1,11 @@
 package mrs.riverjach.blocnote.activities
 
 import android.os.Bundle
+import android.view.Menu
+import android.view.MenuItem
 import android.widget.RelativeLayout
 import android.widget.TextView
+import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
 import androidx.appcompat.widget.Toolbar
 import mrs.riverjach.blocnote.R
@@ -37,5 +40,21 @@ class DetailNote : AppCompatActivity() {
         val toolbar = findViewById<Toolbar>(R.id.toolbar)
         setSupportActionBar(toolbar)
         supportActionBar!!.setDisplayHomeAsUpEnabled(true)
+    }
+
+    override fun onCreateOptionsMenu(menu: Menu?): Boolean {
+        menuInflater.inflate(R.menu.menu_note_detail, menu)
+        return true
+    }
+
+    override fun onOptionsItemSelected(item: MenuItem): Boolean {
+        when (item.itemId) {
+            R.id.action_save -> {
+                Toast.makeText(this, "icone save cliqué", Toast.LENGTH_SHORT).show()
+                return true
+            }
+
+            else -> return super.onOptionsItemSelected(item)
+        }
     }
 }
