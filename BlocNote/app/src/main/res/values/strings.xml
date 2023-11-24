@@ -10,4 +10,11 @@
     <string name="textview_cliqu">textview cliqué !</string>
     <string name="icone_save_cliqu">icone save cliqué</string>
     <string name="j_adore_le_langage_kotlin">J\'adore le langage Kotlin</string>
+    <string name="a_faire">A faire</string>
+    <string name="liste_de_courses">Liste de courses</string>
+    <string name="rendez_vous_pro">Rendez-vous pro</string>
+    <string name="rendez_vous_perso">Rendez-vous perso</string>
+    <string name="lien_internet">Lien internet</string>
+    <string name="contact">Contact</string>
+    <string name="loisirs">Loisirs</string>
 </resources>
