@@ -11,4 +11,5 @@
     <color name="vert">#CCFFCC</color>
     <color name="rose">#FFCCCC</color>
     <color name="grey_dark">#555555</color>
+    <color name="colorAccent">#444444</color>
 </resources>

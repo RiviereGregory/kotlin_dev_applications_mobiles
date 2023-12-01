@@ -21,7 +21,15 @@
         android:layout_height="match_parent"
         android:layout_below="@id/toolbar"
         tools:ignore="ExtraText">
-        tools:listitem="@layout/item_view"
-    </androidx.recyclerview.widget.RecyclerView>
+        tools:listitem="@layout/item_view"</androidx.recyclerview.widget.RecyclerView>
+
+    <com.google.android.material.floatingactionbutton.FloatingActionButton
+        android:id="@+id/create_note_fab"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentRight="true"
+        android:layout_alignParentBottom="true"
+        android:layout_margin="16dp"
+        android:src="@drawable/add_circle_white_24" />
 
 </RelativeLayout>

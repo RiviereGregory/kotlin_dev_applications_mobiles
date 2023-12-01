@@ -8,6 +8,7 @@ import android.widget.Toast
 import androidx.activity.ComponentActivity
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
+import com.google.android.material.floatingactionbutton.FloatingActionButton
 import mrs.riverjach.blocnote.activities.DetailNote
 import mrs.riverjach.blocnote.adapter.NoteAdapter
 import mrs.riverjach.blocnote.model.Note
@@ -18,6 +19,8 @@ class MainActivity : ComponentActivity(), View.OnClickListener {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.listes_notes)
+        val fab = findViewById<FloatingActionButton>(R.id.create_note_fab)
+        fab.setOnClickListener(this)
 
         notes = mutableListOf()
         notes.add(Note("Note 1", getString(R.string.j_adore_le_langage_kotlin), 0, ""))
@@ -49,12 +52,21 @@ class MainActivity : ComponentActivity(), View.OnClickListener {
             Toast.makeText(this, "tag : ${pos}", Toast.LENGTH_SHORT).show()
 
             editNote(pos)
+        } else {
+            when (view?.id) {
+                R.id.create_note_fab -> createNote()
+            }
         }
     }
 
+    private fun createNote() {
+        editNote(-1)
+    }
+
     private fun editNote(position: Int) {
+        val note = if (position < 0) Note() else notes[position]
         val intent = Intent(this, DetailNote::class.java)
-        intent.putExtra("note", notes[position])
+        intent.putExtra("note", note)
         intent.putExtra("noteindex", position)
         startActivityForResult(intent, DetailNote.REQUEST_EDIT_NOTE)
     }
@@ -75,7 +87,11 @@ class MainActivity : ComponentActivity(), View.OnClickListener {
     }
 
     private fun saveNote(note: Note, noteIndex: Int) {
-        notes[noteIndex] = note
+        if (noteIndex < 0) {
+            notes.add(0, note)
+        } else {
+            notes[noteIndex] = note
+        }
         adapter.notifyDataSetChanged()
     }
 }
