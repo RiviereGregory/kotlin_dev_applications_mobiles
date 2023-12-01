@@ -15,12 +15,15 @@ import androidx.appcompat.app.AppCompatActivity
 import androidx.appcompat.widget.Toolbar
 import mrs.riverjach.blocnote.R
 import mrs.riverjach.blocnote.adapter.NoteAdapter
+import mrs.riverjach.blocnote.fragments.ConfirmDeleteNoteDialogFragment
 import mrs.riverjach.blocnote.model.Note
 
 class DetailNote : AppCompatActivity(), View.OnClickListener {
 
     companion object {
-        var REQUEST_EDIT_NOTE = 1
+        val REQUEST_EDIT_NOTE = 1
+        val ACTION_SAVE = "mrs.riverjach.blocnote.activities.ACTION_SAVE"
+        val ACTION_DELETE = "mrs.riverjach.blocnote.activities.ACTION_DELETE"
         var listeCategorie = listOf(
             "A faire",
             "Liste de courses",
@@ -77,8 +80,36 @@ class DetailNote : AppCompatActivity(), View.OnClickListener {
                 true
             }
 
+            R.id.action_delete -> {
+                showConfirmDeleteDialog()
+                true
+            }
+
             else -> super.onOptionsItemSelected(item)
         }
+    }
+
+    private fun showConfirmDeleteDialog() {
+        val confirmFragment = ConfirmDeleteNoteDialogFragment(note.titre)
+        confirmFragment.listenner =
+            object : ConfirmDeleteNoteDialogFragment.ConfirmDeleteDialogListenner {
+                override fun onDialogPositiveClick() {
+                    deleteNote()
+                }
+
+                override fun onDialogNegativeClick() {
+                    // Nothing
+                }
+            }
+        confirmFragment.show(supportFragmentManager, "confirmDeleteDialog")
+
+    }
+
+    private fun deleteNote() {
+        intent = Intent(ACTION_DELETE)
+        intent.putExtra("noteindex", noteIndex)
+        setResult(Activity.RESULT_OK, intent)
+        finish()
     }
 
     override fun onClick(view: View?) {
@@ -100,7 +131,7 @@ class DetailNote : AppCompatActivity(), View.OnClickListener {
             findViewById<RadioButton>(R.id.radio5).isChecked -> note.cat = 5
             findViewById<RadioButton>(R.id.radio6).isChecked -> note.cat = 6
         }
-        intent = Intent()
+        intent = Intent(ACTION_SAVE)
         intent.putExtra("note", note)
         intent.putExtra("noteindex", noteIndex)
         setResult(Activity.RESULT_OK, intent)

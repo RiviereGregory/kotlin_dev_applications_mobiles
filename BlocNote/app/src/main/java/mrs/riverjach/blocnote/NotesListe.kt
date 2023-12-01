@@ -80,10 +80,27 @@ class MainActivity : ComponentActivity(), View.OnClickListener {
         }
     }
 
+    private fun deleteNote(noteIndex: Int) {
+        if (noteIndex < 0) {
+            return
+        } else {
+            notes.removeAt(noteIndex)
+            adapter.notifyDataSetChanged()
+        }
+    }
+
     private fun traitementRetour(data: Intent) {
         val noteIndex = data.getIntExtra("noteindex", -1)
-        val note = data.getParcelableExtra<Note>("note")!!
-        saveNote(note, noteIndex)
+        val note = data.getParcelableExtra<Note>("note")
+        when (data.action) {
+            DetailNote.ACTION_DELETE -> {
+                deleteNote(noteIndex)
+            }
+
+            DetailNote.ACTION_SAVE -> {
+                if (note != null) saveNote(note, noteIndex)
+            }
+        }
     }
 
     private fun saveNote(note: Note, noteIndex: Int) {

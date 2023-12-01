@@ -17,4 +17,6 @@
     <string name="lien_internet">Lien internet</string>
     <string name="contact">Contact</string>
     <string name="loisirs">Loisirs</string>
+    <string name="supprimer">Supprimer</string>
+    <string name="annuler">Annuler</string>
 </resources>
