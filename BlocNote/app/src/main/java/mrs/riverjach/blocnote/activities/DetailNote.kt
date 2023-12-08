@@ -15,8 +15,8 @@ import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
 import androidx.appcompat.widget.Toolbar
 import mrs.riverjach.blocnote.R
-import mrs.riverjach.blocnote.adapter.NoteAdapter
 import mrs.riverjach.blocnote.fragments.ConfirmDeleteNoteDialogFragment
+import mrs.riverjach.blocnote.model.Categories
 import mrs.riverjach.blocnote.model.Note
 
 class DetailNote : AppCompatActivity(), View.OnClickListener {
@@ -25,14 +25,14 @@ class DetailNote : AppCompatActivity(), View.OnClickListener {
         val REQUEST_EDIT_NOTE = 1
         val ACTION_SAVE = "mrs.riverjach.blocnote.activities.ACTION_SAVE"
         val ACTION_DELETE = "mrs.riverjach.blocnote.activities.ACTION_DELETE"
-        var listeCategorie = listOf(
-            "A faire",
-            "Liste de courses",
-            "Rendez-vous pro",
-            "Rendez-vous perso",
-            "Lien internet",
-            "Contact",
-            "Loisirs"
+        var categories: List<Categories> = listOf(
+            Categories.FAIRE,
+            Categories.COURSE,
+            Categories.RDV_PRO,
+            Categories.RDV_PERSO,
+            Categories.URL,
+            Categories.CONTACT,
+            Categories.LOISIR
         )
     }
 
@@ -58,9 +58,10 @@ class DetailNote : AppCompatActivity(), View.OnClickListener {
         textViewCategorie.setOnClickListener(this)
 
         textViewTitre.text = note.titre
-        textViewCategorie.text = listeCategorie[note.cat]
+        val category = categories[note.cat]
+        textViewCategorie.text = category.text
         textViewContenu.text = note.contenu
-        rLayout.setBackgroundColor(NoteAdapter.color[note.cat])
+        rLayout.setBackgroundColor(category.color)
 
         val toolbar = findViewById<Toolbar>(R.id.toolbar)
         setSupportActionBar(toolbar)
