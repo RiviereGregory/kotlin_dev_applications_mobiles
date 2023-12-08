@@ -3,6 +3,7 @@ package mrs.riverjach.blocnote
 import android.app.Activity
 import android.content.Intent
 import android.os.Bundle
+import android.os.Parcelable
 import android.view.View
 import android.widget.Toast
 import androidx.activity.ComponentActivity
@@ -12,6 +13,9 @@ import com.google.android.material.floatingactionbutton.FloatingActionButton
 import mrs.riverjach.blocnote.activities.DetailNote
 import mrs.riverjach.blocnote.adapter.NoteAdapter
 import mrs.riverjach.blocnote.model.Note
+import mrs.riverjach.blocnote.urils.deleteNote
+import mrs.riverjach.blocnote.urils.loadNotes
+import mrs.riverjach.blocnote.urils.writeNote
 
 class MainActivity : ComponentActivity(), View.OnClickListener {
     lateinit var notes: MutableList<Note>
@@ -22,22 +26,7 @@ class MainActivity : ComponentActivity(), View.OnClickListener {
         val fab = findViewById<FloatingActionButton>(R.id.create_note_fab)
         fab.setOnClickListener(this)
 
-        notes = mutableListOf()
-        notes.add(Note("Note 1", getString(R.string.j_adore_le_langage_kotlin), 0, ""))
-        notes.add(Note("Note 2", getString(R.string.j_adore_le_langage_kotlin), 1, ""))
-        notes.add(Note("Note 3", getString(R.string.j_adore_le_langage_kotlin), 2, ""))
-        notes.add(Note("Note 4", getString(R.string.j_adore_le_langage_kotlin), 3, ""))
-        notes.add(Note("Note 5", getString(R.string.j_adore_le_langage_kotlin), 4, ""))
-        notes.add(Note("Note 6", getString(R.string.j_adore_le_langage_kotlin), 5, ""))
-        notes.add(Note("Note 7", getString(R.string.j_adore_le_langage_kotlin), 6, ""))
-        notes.add(Note("Note 8", getString(R.string.j_adore_le_langage_kotlin), 0, ""))
-        notes.add(Note("Note 9", getString(R.string.j_adore_le_langage_kotlin), 1, ""))
-        notes.add(Note("Note 10", getString(R.string.j_adore_le_langage_kotlin), 2, ""))
-        notes.add(Note("Note 11", getString(R.string.j_adore_le_langage_kotlin), 3, ""))
-        notes.add(Note("Note 12", getString(R.string.j_adore_le_langage_kotlin), 4, ""))
-        notes.add(Note("Note 13", getString(R.string.j_adore_le_langage_kotlin), 5, ""))
-        notes.add(Note("Note 14", getString(R.string.j_adore_le_langage_kotlin), 6, ""))
-
+        notes = loadNotes(this)
         val recyclerView = findViewById<RecyclerView>(R.id.liste_notes_recycler_view)
         adapter = NoteAdapter(notes, this)
         recyclerView.layoutManager = LinearLayoutManager(this)
@@ -66,7 +55,7 @@ class MainActivity : ComponentActivity(), View.OnClickListener {
     private fun editNote(position: Int) {
         val note = if (position < 0) Note() else notes[position]
         val intent = Intent(this, DetailNote::class.java)
-        intent.putExtra("note", note)
+        intent.putExtra("note", note as Parcelable)
         intent.putExtra("noteindex", position)
         startActivityForResult(intent, DetailNote.REQUEST_EDIT_NOTE)
     }
@@ -84,7 +73,8 @@ class MainActivity : ComponentActivity(), View.OnClickListener {
         if (noteIndex < 0) {
             return
         } else {
-            notes.removeAt(noteIndex)
+            val note = notes.removeAt(noteIndex)
+            deleteNote(this, note)
             adapter.notifyDataSetChanged()
         }
     }
@@ -104,6 +94,7 @@ class MainActivity : ComponentActivity(), View.OnClickListener {
     }
 
     private fun saveNote(note: Note, noteIndex: Int) {
+        writeNote(this, note)
         if (noteIndex < 0) {
             notes.add(0, note)
         } else {

@@ -3,6 +3,7 @@ package mrs.riverjach.blocnote.activities
 import android.app.Activity
 import android.content.Intent
 import android.os.Bundle
+import android.os.Parcelable
 import android.view.Menu
 import android.view.MenuItem
 import android.view.View
@@ -132,7 +133,7 @@ class DetailNote : AppCompatActivity(), View.OnClickListener {
             findViewById<RadioButton>(R.id.radio6).isChecked -> note.cat = 6
         }
         intent = Intent(ACTION_SAVE)
-        intent.putExtra("note", note)
+        intent.putExtra("note", note as Parcelable)
         intent.putExtra("noteindex", noteIndex)
         setResult(Activity.RESULT_OK, intent)
         finish()
