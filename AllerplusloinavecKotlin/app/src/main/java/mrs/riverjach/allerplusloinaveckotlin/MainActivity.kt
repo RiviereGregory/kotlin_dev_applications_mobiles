@@ -26,7 +26,15 @@ class MainActivity : ComponentActivity() {
         val numbers = arrayOf(-121, -119, -57, -50, -8, -6, 0, 3, 5, 7, 51, 58, 68, 99, 122)
         println("Tableau initial : ${Arrays.toString(numbers)}")
         val numbersPositif = numbers.filter { it >= 0 }
-        println("Tableau filtre positifavec lambda : ${Arrays.toString(numbersPositif.toIntArray())}")
+        println("Tableau filtre positif avec lambda : ${Arrays.toString(numbersPositif.toIntArray())}")
+        val numbersPositifMultiple3 = (numbers.filter { it >= 0 }).filter { it % 3 == 0 }
+        println(
+            "Tableau filtre positif + Multiple 3 avec lambda : ${
+                Arrays.toString(
+                    numbersPositifMultiple3.toIntArray()
+                )
+            }"
+        )
 
     }
 
