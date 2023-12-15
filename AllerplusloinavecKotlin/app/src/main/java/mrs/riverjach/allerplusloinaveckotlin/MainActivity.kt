@@ -6,6 +6,8 @@ import mrs.riverjach.allerplusloinaveckotlin.utils.Armes
 import mrs.riverjach.allerplusloinaveckotlin.utils.Figure
 import mrs.riverjach.allerplusloinaveckotlin.utils.Figure.Unite.description
 import mrs.riverjach.allerplusloinaveckotlin.utils.filterArrayInt
+import mrs.riverjach.allerplusloinaveckotlin.utils.filterArrayIntMultiplek
+import mrs.riverjach.allerplusloinaveckotlin.utils.filterMulitple
 import mrs.riverjach.allerplusloinaveckotlin.utils.filterMultiple3
 import mrs.riverjach.allerplusloinaveckotlin.utils.filterPair
 import mrs.riverjach.allerplusloinaveckotlin.utils.filterPositif
@@ -31,6 +33,12 @@ class MainActivity : ComponentActivity() {
         val numbersPositifMultiple3 =
             filterArrayInt(filterArrayInt(numbers, ::filterPositif), ::filterMultiple3)
         println("Tableau filtre positif + Multiple 3 : ${Arrays.toString(numbersPositifMultiple3)}")
+
+        // Exemple 2
+        for (k in 2..9) {
+            var numbersFiltre = filterArrayIntMultiplek(numbers, k, ::filterMulitple)
+            println("Tableau Multiple de $k : ${Arrays.toString(numbersFiltre)}")
+        }
     }
 
     private fun sealedClass() {
