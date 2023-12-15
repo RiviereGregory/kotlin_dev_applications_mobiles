@@ -5,12 +5,32 @@ import androidx.activity.ComponentActivity
 import mrs.riverjach.allerplusloinaveckotlin.utils.Armes
 import mrs.riverjach.allerplusloinaveckotlin.utils.Figure
 import mrs.riverjach.allerplusloinaveckotlin.utils.Figure.Unite.description
+import mrs.riverjach.allerplusloinaveckotlin.utils.filterArrayInt
+import mrs.riverjach.allerplusloinaveckotlin.utils.filterMultiple3
+import mrs.riverjach.allerplusloinaveckotlin.utils.filterPair
+import mrs.riverjach.allerplusloinaveckotlin.utils.filterPositif
+import java.util.Arrays
 
 class MainActivity : ComponentActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         enumClass()
         sealedClass()
+        highOrderFunction()
+    }
+
+    private fun highOrderFunction() {
+        val numbers = arrayOf(-121, -119, -57, -50, -8, -6, 0, 3, 5, 7, 51, 58, 68, 99, 122)
+        println("Tableau initial : ${Arrays.toString(numbers)}")
+        val numbersPositif = filterArrayInt(numbers, ::filterPositif)
+        println("Tableau filtre positif : ${Arrays.toString(numbersPositif)}")
+        val numbersPair = filterArrayInt(numbers, ::filterPair)
+        println("Tableau filtre Pair : ${Arrays.toString(numbersPair)}")
+        val numbersMultiple3 = filterArrayInt(numbers, ::filterMultiple3)
+        println("Tableau filtre Multiple 3 : ${Arrays.toString(numbersMultiple3)}")
+        val numbersPositifMultiple3 =
+            filterArrayInt(filterArrayInt(numbers, ::filterPositif), ::filterMultiple3)
+        println("Tableau filtre positif + Multiple 3 : ${Arrays.toString(numbersPositifMultiple3)}")
     }
 
     private fun sealedClass() {
