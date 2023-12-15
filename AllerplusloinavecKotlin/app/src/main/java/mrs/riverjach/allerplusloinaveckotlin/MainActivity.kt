@@ -25,7 +25,7 @@ class MainActivity : ComponentActivity() {
     private fun lambdaFunction() {
         val numbers = arrayOf(-121, -119, -57, -50, -8, -6, 0, 3, 5, 7, 51, 58, 68, 99, 122)
         println("Tableau initial : ${Arrays.toString(numbers)}")
-        val numbersPositif = numbers.filter { i -> i >= 0 }
+        val numbersPositif = numbers.filter { it >= 0 }
         println("Tableau filtre positifavec lambda : ${Arrays.toString(numbersPositif.toIntArray())}")
 
     }
