@@ -36,6 +36,14 @@ class MainActivity : ComponentActivity() {
             }"
         )
 
+        val numbersPair = numbers.filter { it % 2 == 0 }
+        numbersPair.forEach { print("v=$it ;") }
+        println()
+        numbersPair.forEachIndexed { index, valeur -> print("i=$index/v=$valeur ;") }
+        println()
+        numbersPair.forEachIndexed { index, _ -> print("j=${2 * index + 1} ;") }
+        println()
+
     }
 
     private fun highOrderFunction() {
