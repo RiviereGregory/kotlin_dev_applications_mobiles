@@ -2,6 +2,7 @@ package mrs.riverjach.allerplusloinaveckotlin
 
 import android.os.Bundle
 import androidx.activity.ComponentActivity
+import mrs.riverjach.allerplusloinaveckotlin.model.User
 import mrs.riverjach.allerplusloinaveckotlin.utils.Armes
 import mrs.riverjach.allerplusloinaveckotlin.utils.Figure
 import mrs.riverjach.allerplusloinaveckotlin.utils.Figure.Unite.description
@@ -20,6 +21,37 @@ class MainActivity : ComponentActivity() {
         sealedClass()
         highOrderFunction()
         lambdaFunction()
+        elvisOperator()
+    }
+
+    private fun elvisOperator() {
+        var name: String? = null
+        var sizeElvis: Int? = name?.length ?: -1
+        println(sizeElvis)
+
+        val user1 = User(null, null)
+        val user2 = User("Tom", null)
+        val user3 = User("Tom", "tomtom@kotlin.com")
+
+        user1.updateName("bob")
+        user2.updateName(null)
+
+        try {
+            user3.updateEmail(null)
+        } catch (e: Exception) {
+            println(e.message)
+        }
+        try {
+            user1.updateEmail("bobbob@kotlin.com")
+        } catch (e: Exception) {
+            println(e.message)
+        }
+
+        println("user1 : ${user1.name} ; ${user1.email}")
+        println("user2 : ${user2.name} ; ${user2.email}")
+        println("user3 : ${user3.name} ; ${user3.email}")
+
+
     }
 
     private fun lambdaFunction() {
