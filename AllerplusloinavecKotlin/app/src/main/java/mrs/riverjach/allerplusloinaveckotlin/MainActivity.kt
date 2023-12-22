@@ -28,6 +28,7 @@ class MainActivity : ComponentActivity() {
     private fun collectionList() {
         exempleList1()
         exempleList2()
+        exempleList3()
     }
 
     private fun exempleList1() {
@@ -45,6 +46,52 @@ class MainActivity : ComponentActivity() {
         println("Elément à l'index 0 : ${maList[0]}")
         println("Contient \"Bob\" ? : ${maList.contains("Bob")}")
         println("Contient \"Tom\" ? : ${maList.contains("Tom")}")
+    }
+
+    private fun exempleList3() {
+        val maList = mutableListOf<Int>(5, 10, 20, 50, 100, 200, 500)
+        println("nombre d'éléments: ${maList.size}")
+        println("Elément à l'index 6 : ${maList[6]}")
+        println("Contient 1000 : ${maList.contains(1000)}")
+        maList.add(40)
+        maList.add(100)
+        maList.add(1000)
+        println(maList)
+        println("nombre d'éléments: ${maList.size}")
+        println("Elément à l'index 6 : ${maList[6]}")
+        println("Contient 1000 : ${maList.contains(1000)}")
+        maList.remove(100)
+        println(maList)
+        maList.add(10)
+        maList.add(300)
+        maList.add(10)
+        maList.add(300)
+        println(maList)
+        // remove tous les 10
+        maList.removeAll { it == 10 }
+        println(maList)
+        maList.add(10)
+        maList.add(300)
+        maList.add(10)
+        maList.add(300)
+        println(maList)
+        // filtre au dessus de 10
+        val maList2 = maList.filter { it > 10 }
+        println(maList2)
+        // filtre au dessus ou égale de 10 et modulo 3
+        val maList3 = maList.filter { it >= 10 }
+            .filter { it % 3 == 0 }
+        println(maList3)
+        // mélange aléatoire
+        val maListHazard = maList.shuffled()
+        println(maListHazard)
+        // tri ascendent
+        val maListSorted = maList.sorted()
+        println(maListSorted)
+        // tri descendent
+        val maListSortedDes = maList.sortedDescending()
+        println(maListSortedDes)
+
     }
 
     private fun elvisOperator() {
