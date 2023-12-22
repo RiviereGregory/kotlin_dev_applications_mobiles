@@ -47,6 +47,35 @@ class MainActivity : ComponentActivity() {
         println("###### collectionSet #####")
         println(SEPARATOR)
         collectionSet()
+        println(SEPARATOR)
+        println("###### collectionMap #####")
+        println(SEPARATOR)
+        collectionMap()
+    }
+
+    private fun collectionMap() {
+        val maMap = mutableMapOf(
+            44000 to "NANTES",
+            44110 to "SOUDAN",
+            44600 to "SAINT-NAZAIRE"
+        )
+        println(maMap)
+        maMap.put(44400, "REZE")
+        println(maMap)
+        println("Valeur correspondant à la clé 44600 : ${maMap[44600]}")
+        // Utilisation key et map[key]
+        for (key in maMap.keys) {
+            println("clé : $key => valeur : ${maMap[key]}")
+        }
+        // Utilisation entry
+        for (entry in maMap.entries) {
+            println("clé : ${entry.key} ==> valeur : ${entry.value}")
+        }
+        // Utilisation key et value
+        for ((key, value) in maMap) {
+            println("clé : $key ===> valeur : $value")
+        }
+
     }
 
     private fun collectionSet() {
