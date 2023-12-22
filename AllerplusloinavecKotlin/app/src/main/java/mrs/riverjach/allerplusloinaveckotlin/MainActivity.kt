@@ -22,6 +22,29 @@ class MainActivity : ComponentActivity() {
         highOrderFunction()
         lambdaFunction()
         elvisOperator()
+        collectionList()
+    }
+
+    private fun collectionList() {
+        exempleList1()
+        exempleList2()
+    }
+
+    private fun exempleList1() {
+        val maList = listOf(5, 10, 20, 50, 100, 200, 500)
+        println("nombre d'éléments: ${maList.size}")
+        println("Elément à l'index 2 : ${maList[2]}")
+        println("Le dernier élément : ${maList.last()}")
+        println("Index de l'Elément 200 : ${maList.indexOf(200)}")
+        println("Index de l'Elément 1000 : ${maList.indexOf(1000)}")
+    }
+
+    private fun exempleList2() {
+        val maList = listOf(20, "Tom", 1250.30)
+        println("nombre d'éléments: ${maList.size}")
+        println("Elément à l'index 0 : ${maList[0]}")
+        println("Contient \"Bob\" ? : ${maList.contains("Bob")}")
+        println("Contient \"Tom\" ? : ${maList.contains("Tom")}")
     }
 
     private fun elvisOperator() {
