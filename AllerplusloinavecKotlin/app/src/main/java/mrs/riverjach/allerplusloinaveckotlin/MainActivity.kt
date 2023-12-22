@@ -14,15 +14,56 @@ import mrs.riverjach.allerplusloinaveckotlin.utils.filterPair
 import mrs.riverjach.allerplusloinaveckotlin.utils.filterPositif
 import java.util.Arrays
 
+private const val SEPARATOR = "###### ###### #####"
+
 class MainActivity : ComponentActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
+        println(SEPARATOR)
+        println("###### enumClass #####")
+        println(SEPARATOR)
         enumClass()
+        println(SEPARATOR)
+        println("###### sealedClass #####")
+        println(SEPARATOR)
         sealedClass()
+        println(SEPARATOR)
+        println("###### highOrderFunction #####")
+        println(SEPARATOR)
         highOrderFunction()
+        println(SEPARATOR)
+        println("###### lambdaFunction #####")
+        println(SEPARATOR)
         lambdaFunction()
+        println(SEPARATOR)
+        println("###### elvisOperator #####")
+        println(SEPARATOR)
         elvisOperator()
+        println(SEPARATOR)
+        println("###### collectionList #####")
+        println(SEPARATOR)
         collectionList()
+        println(SEPARATOR)
+        println("###### collectionSet #####")
+        println(SEPARATOR)
+        collectionSet()
+    }
+
+    private fun collectionSet() {
+        val monSet = mutableSetOf("Tom", 1500, "Charlotte", 28.56, "Morgane", 1200)
+        val monSet2 = mutableSetOf(2, 5, 9, 18, 1, 5, 22, 50, 3)
+        // Permet d'avoir un type Pair avec le prédicat vrai
+        // et l'autre avec les autre élément
+        val maListPartion = monSet.partition { it is String }
+        println(maListPartion)
+        println(maListPartion.first)
+        println(maListPartion.second)
+        // Permet de coupé la liste en collection plus petite
+        val maListChunked = monSet2.sorted().chunked(3)
+        println(maListChunked)
+        for (i in 0..maListChunked.size - 1) {
+            println(maListChunked[i])
+        }
     }
 
     private fun collectionList() {
