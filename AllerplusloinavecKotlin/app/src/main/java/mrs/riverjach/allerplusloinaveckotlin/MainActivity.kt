@@ -23,6 +23,10 @@ class MainActivity : AppCompatActivity() {
         findViewById(R.id.hello_world) as TextView
     }
 
+    fun Int.isEvent(): Boolean {
+        return this % 2 == 0
+    }
+
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.layout)
@@ -65,6 +69,19 @@ class MainActivity : AppCompatActivity() {
         println("###### Lazy init 2#####")
         println(SEPARATOR)
         lazyInit()
+        print(SEPARATOR)
+        println(SEPARATOR)
+        println("###### Fonction Extension #####")
+        print(SEPARATOR)
+        println(SEPARATOR)
+        println("###### Custom 1 #####")
+        fonctionExtensionCustom1()
+    }
+
+    private fun fonctionExtensionCustom1() {
+        println(21.isEvent())
+        val age = 56
+        println(age.isEvent())
     }
 
     private fun lazyInit() {
