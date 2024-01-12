@@ -1,6 +1,7 @@
 package mrs.riverjach.allerplusloinaveckotlin
 
 import android.os.Bundle
+import android.os.CountDownTimer
 import android.widget.TextView
 import androidx.appcompat.app.AppCompatActivity
 import mrs.riverjach.allerplusloinaveckotlin.model.User
@@ -15,6 +16,7 @@ import mrs.riverjach.allerplusloinaveckotlin.utils.filterPair
 import mrs.riverjach.allerplusloinaveckotlin.utils.filterPositif
 import mrs.riverjach.allerplusloinaveckotlin.utils.isEvent
 import mrs.riverjach.allerplusloinaveckotlin.utils.swap
+import mrs.riverjach.allerplusloinaveckotlin.utils.switch
 import java.util.Arrays
 
 private const val SEPARATOR = "###### ###### #####"
@@ -76,6 +78,22 @@ class MainActivity : AppCompatActivity() {
         fonctionExtensionCustom1()
         println("###### Custom 2 #####")
         fonctionExtensionCustom2()
+        println("###### Custom 3 #####")
+        fonctionExtensionCustom3()
+    }
+
+    private fun fonctionExtensionCustom3() {
+        val monTextView = findViewById(R.id.hello_world) as TextView
+        val myTimer = object : CountDownTimer(20000, 1000) {
+            override fun onTick(p0: Long) {
+                monTextView.switch()
+            }
+
+            override fun onFinish() {
+                println("Timer is finish")
+            }
+        }
+        myTimer.start()
     }
 
     private fun fonctionExtensionCustom2() {
