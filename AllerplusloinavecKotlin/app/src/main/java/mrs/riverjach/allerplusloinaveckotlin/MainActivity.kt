@@ -62,6 +62,18 @@ class MainActivity : AppCompatActivity() {
         println(SEPARATOR)
         println(helloWorldLazy.text)
         println(helloWorldLazy.text)
+        println("###### Lazy init 2#####")
+        println(SEPARATOR)
+        lazyInit()
+    }
+
+    private fun lazyInit() {
+        val user = User("Tom", "tomtom@kotlin.com")
+        println("premier appel :")
+        println(user.sports)
+        println("deuxième appel :")
+        println(user.sports)
+
     }
 
     private fun collectionMap() {
