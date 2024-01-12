@@ -1,7 +1,8 @@
 package mrs.riverjach.allerplusloinaveckotlin
 
 import android.os.Bundle
-import androidx.activity.ComponentActivity
+import android.widget.TextView
+import androidx.appcompat.app.AppCompatActivity
 import mrs.riverjach.allerplusloinaveckotlin.model.User
 import mrs.riverjach.allerplusloinaveckotlin.utils.Armes
 import mrs.riverjach.allerplusloinaveckotlin.utils.Figure
@@ -16,9 +17,15 @@ import java.util.Arrays
 
 private const val SEPARATOR = "###### ###### #####"
 
-class MainActivity : ComponentActivity() {
+class MainActivity : AppCompatActivity() {
+    val helloWorldLazy: TextView by lazy {
+        println("Initialisation de helloWorldLazy")
+        findViewById(R.id.hello_world) as TextView
+    }
+
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
+        setContentView(R.layout.layout)
         println(SEPARATOR)
         println("###### enumClass #####")
         println(SEPARATOR)
@@ -51,6 +58,10 @@ class MainActivity : ComponentActivity() {
         println("###### collectionMap #####")
         println(SEPARATOR)
         collectionMap()
+        println("###### Lazy init #####")
+        println(SEPARATOR)
+        println(helloWorldLazy.text)
+        println(helloWorldLazy.text)
     }
 
     private fun collectionMap() {
