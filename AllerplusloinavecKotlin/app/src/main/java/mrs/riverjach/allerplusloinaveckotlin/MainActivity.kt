@@ -13,6 +13,8 @@ import mrs.riverjach.allerplusloinaveckotlin.utils.filterMulitple
 import mrs.riverjach.allerplusloinaveckotlin.utils.filterMultiple3
 import mrs.riverjach.allerplusloinaveckotlin.utils.filterPair
 import mrs.riverjach.allerplusloinaveckotlin.utils.filterPositif
+import mrs.riverjach.allerplusloinaveckotlin.utils.isEvent
+import mrs.riverjach.allerplusloinaveckotlin.utils.swap
 import java.util.Arrays
 
 private const val SEPARATOR = "###### ###### #####"
@@ -21,16 +23,6 @@ class MainActivity : AppCompatActivity() {
     val helloWorldLazy: TextView by lazy {
         println("Initialisation de helloWorldLazy")
         findViewById(R.id.hello_world) as TextView
-    }
-
-    fun Int.isEvent(): Boolean {
-        return this % 2 == 0
-    }
-
-    fun MutableList<Int>.swap(index1: Int, index2: Int) {
-        val tmp = this[index1] // 'this' corresponds to the list
-        this[index1] = this[index2]
-        this[index2] = tmp
     }
 
     override fun onCreate(savedInstanceState: Bundle?) {
