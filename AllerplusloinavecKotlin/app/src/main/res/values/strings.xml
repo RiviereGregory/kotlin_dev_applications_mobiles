@@ -1,3 +1,8 @@
 <resources>
     <string name="app_name">Aller plus loin avec Kotlin</string>
+    <string name="layoutOeuf">2 eggs</string>
+    <string name="layoutFarine">250g of flour</string>
+    <string name="layoutTitre">crepe paste recipe : 10 crepes</string>
+    <string name="layoutPlus">+</string>
+    <string name="layoutMoins">-</string>
 </resources>
