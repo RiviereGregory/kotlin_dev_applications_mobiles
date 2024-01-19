@@ -34,7 +34,7 @@ class MainActivity : AppCompatActivity() {
         val textViewFarine = findViewById(R.id.textViewFarine) as TextView
         textViewFarine.text = getString(R.string.layoutFarine, 125 * i)
         val textViewOeuf = findViewById(R.id.textViewOeuf) as TextView
-        textViewOeuf.text = getString(R.string.layoutOeuf, i)
+        textViewOeuf.text = resources.getQuantityString(R.plurals.layoutOeuf, i, i)
     }
 
     override fun onCreate(savedInstanceState: Bundle?) {

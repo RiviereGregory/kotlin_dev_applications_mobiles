@@ -1,6 +1,9 @@
-<resources>
+<resources xmlns:tools="http://schemas.android.com/tools" tools:ignore="MissingQuantity">
     <string name="app_name">Aller plus loin avec Kotlin</string>
-    <string name="layoutOeuf">%1$d oeufs</string>
+    <plurals name="layoutOeuf">
+        <item quantity="one">%d oeuf</item>
+        <item quantity="other">%d oeufs</item>
+    </plurals>
     <string name="layoutFarine">%1$dg de farine</string>
     <string name="layoutTitre">Recette de pâte à crèpes : %1$d crèpes</string>
 </resources>
