@@ -2,6 +2,7 @@ package mrs.riverjach.allerplusloinaveckotlin
 
 import android.os.Bundle
 import android.os.CountDownTimer
+import android.widget.Button
 import android.widget.TextView
 import androidx.appcompat.app.AppCompatActivity
 import mrs.riverjach.allerplusloinaveckotlin.model.User
@@ -25,6 +26,15 @@ class MainActivity : AppCompatActivity() {
     val helloWorldLazy: TextView by lazy {
         println("Initialisation de helloWorldLazy")
         findViewById(R.id.hello_world) as TextView
+    }
+
+    fun refresh(i: Int) {
+        val textViewTitre = findViewById(R.id.textViewTitre) as TextView
+        textViewTitre.text = getString(R.string.layoutTitre, 5 * i)
+        val textViewFarine = findViewById(R.id.textViewFarine) as TextView
+        textViewFarine.text = getString(R.string.layoutFarine, 125 * i)
+        val textViewOeuf = findViewById(R.id.textViewOeuf) as TextView
+        textViewOeuf.text = getString(R.string.layoutOeuf, i)
     }
 
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -82,6 +92,29 @@ class MainActivity : AppCompatActivity() {
         fonctionExtensionCustom3()
         println("###### Native Kotlin #####")
         fonctionExtensionNativeKotlin()
+        println(SEPARATOR)
+        println("###### i18n #####")
+        println(SEPARATOR)
+        focntioni18n()
+    }
+
+    private fun focntioni18n() {
+        var i = 2
+        refresh(2)
+        val buttonPlus = findViewById(R.id.boutonPlus) as Button
+        buttonPlus.setOnClickListener {
+            i++
+            refresh(i)
+        }
+        val buttonMoins = findViewById(R.id.boutonMoins) as Button
+        buttonMoins.setOnClickListener {
+            if (i > 1) {
+                i--
+                refresh(i)
+            }
+        }
+
+
     }
 
     private fun fonctionExtensionNativeKotlin() {

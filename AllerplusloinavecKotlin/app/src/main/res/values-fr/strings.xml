@@ -1,6 +1,6 @@
 <resources>
     <string name="app_name">Aller plus loin avec Kotlin</string>
-    <string name="layoutOeuf">2 oeufs</string>
-    <string name="layoutFarine">250g de farine</string>
-    <string name="layoutTitre">Recette de pâte à crèpes : 10 crèpes</string>
+    <string name="layoutOeuf">%1$d oeufs</string>
+    <string name="layoutFarine">%1$dg de farine</string>
+    <string name="layoutTitre">Recette de pâte à crèpes : %1$d crèpes</string>
 </resources>
