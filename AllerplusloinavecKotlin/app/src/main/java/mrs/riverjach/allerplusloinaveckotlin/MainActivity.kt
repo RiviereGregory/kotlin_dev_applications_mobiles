@@ -1,10 +1,13 @@
 package mrs.riverjach.allerplusloinaveckotlin
 
+import android.content.Intent
 import android.os.Bundle
 import android.os.CountDownTimer
 import android.widget.Button
 import android.widget.TextView
 import androidx.appcompat.app.AppCompatActivity
+import mrs.riverjach.allerplusloinaveckotlin.activities.LayoutActivity
+import mrs.riverjach.allerplusloinaveckotlin.activities.SecondActivity
 import mrs.riverjach.allerplusloinaveckotlin.model.User
 import mrs.riverjach.allerplusloinaveckotlin.utils.Armes
 import mrs.riverjach.allerplusloinaveckotlin.utils.Figure
@@ -28,18 +31,9 @@ class MainActivity : AppCompatActivity() {
         findViewById(R.id.hello_world) as TextView
     }
 
-    fun refresh(i: Int) {
-        val textViewTitre = findViewById(R.id.textViewTitre) as TextView
-        textViewTitre.text = getString(R.string.layoutTitre, 5 * i)
-        val textViewFarine = findViewById(R.id.textViewFarine) as TextView
-        textViewFarine.text = getString(R.string.layoutFarine, 125 * i)
-        val textViewOeuf = findViewById(R.id.textViewOeuf) as TextView
-        textViewOeuf.text = resources.getQuantityString(R.plurals.layoutOeuf, i, i)
-    }
-
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        setContentView(R.layout.layout)
+        setContentView(R.layout.main_activity)
         println(SEPARATOR)
         println("###### enumClass #####")
         println(SEPARATOR)
@@ -95,27 +89,29 @@ class MainActivity : AppCompatActivity() {
         println(SEPARATOR)
         println("###### i18n #####")
         println(SEPARATOR)
-        focntioni18n()
+        fonctionI18n()
+        println(SEPARATOR)
+        println("###### fragment #####")
+        println(SEPARATOR)
+        fonctionFragment()
     }
 
-    private fun focntioni18n() {
-        var i = 2
-        refresh(2)
-        val buttonPlus = findViewById(R.id.boutonPlus) as Button
-        buttonPlus.setOnClickListener {
-            i++
-            refresh(i)
+    private fun fonctionFragment() {
+        val button: Button = findViewById(R.id.startFragment)
+        button.setOnClickListener {
+            val intent = Intent(this, SecondActivity::class.java)
+            startActivity(intent)
         }
-        val buttonMoins = findViewById(R.id.boutonMoins) as Button
-        buttonMoins.setOnClickListener {
-            if (i > 1) {
-                i--
-                refresh(i)
-            }
-        }
-
-
     }
+
+    private fun fonctionI18n() {
+        val button: Button = findViewById(R.id.startRecette)
+        button.setOnClickListener {
+            val intent = Intent(this, LayoutActivity::class.java)
+            startActivity(intent)
+        }
+    }
+
 
     private fun fonctionExtensionNativeKotlin() {
         println(" ==> LET")

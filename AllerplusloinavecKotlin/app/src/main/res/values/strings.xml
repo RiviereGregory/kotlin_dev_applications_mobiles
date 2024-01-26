@@ -8,4 +8,11 @@
     <string name="layoutTitre">crepe paste recipe : %1$d crepes</string>
     <string name="layoutPlus" translatable="false">+</string>
     <string name="layoutMoins" translatable="false">-</string>
+    <string name="fragmentGreylightText">Fragment GreyLight</string>
+    <string name="title_activity_secod">SecodActivity</string>
+    <string name="title_home">Home</string>
+    <string name="title_dashboard">Dashboard</string>
+    <string name="title_notifications">Notifications</string>
+    <string name="fragment">fragment</string>
+    <string name="recette">Recette</string>
 </resources>
