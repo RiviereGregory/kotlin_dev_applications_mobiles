@@ -9,10 +9,11 @@
     <string name="layoutPlus" translatable="false">+</string>
     <string name="layoutMoins" translatable="false">-</string>
     <string name="fragmentGreylightText">Fragment GreyLight</string>
-    <string name="title_activity_secod">SecodActivity</string>
+    <string name="title_activity_secod">SecondActivity</string>
     <string name="title_home">Home</string>
     <string name="title_dashboard">Dashboard</string>
     <string name="title_notifications">Notifications</string>
     <string name="fragment">fragment</string>
-    <string name="recette">Recette</string>
+    <string name="recette">Recipe</string>
+    <string name="greyDark">Fragment greyDark</string>
 </resources>

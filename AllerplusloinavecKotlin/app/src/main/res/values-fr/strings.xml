@@ -6,4 +6,12 @@
     </plurals>
     <string name="layoutFarine">%1$dg de farine</string>
     <string name="layoutTitre">Recette de pâte à crèpes : %1$d crèpes</string>
+    <string name="fragmentGreylightText">Fragment gris clair</string>
+    <string name="title_activity_secod">deuxième activity</string>
+    <string name="title_home">Maison</string>
+    <string name="title_dashboard">Dashboard</string>
+    <string name="title_notifications">Notifications</string>
+    <string name="fragment">fragment</string>
+    <string name="recette">Recette</string>
+    <string name="greyDark">Fragment gris foncé</string>
 </resources>
