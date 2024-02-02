@@ -2,12 +2,16 @@ package mrs.riverjach.allerplusloinaveckotlin
 
 import android.content.Context
 import android.content.Intent
+import android.content.pm.PackageManager
+import android.net.Uri
 import android.os.Bundle
 import android.os.CountDownTimer
 import android.os.Vibrator
 import android.widget.Button
 import android.widget.TextView
 import androidx.appcompat.app.AppCompatActivity
+import androidx.core.app.ActivityCompat
+import androidx.core.content.ContextCompat
 import mrs.riverjach.allerplusloinaveckotlin.activities.FrameLayoutActivity
 import mrs.riverjach.allerplusloinaveckotlin.activities.LayoutActivity
 import mrs.riverjach.allerplusloinaveckotlin.activities.SecondActivity
@@ -29,6 +33,9 @@ import java.util.Arrays
 private const val SEPARATOR = "###### ###### #####"
 
 class MainActivity : AppCompatActivity() {
+
+    val PERMISSION_CALL_PHONE = 0
+
     val helloWorldLazy: TextView by lazy {
         println("Initialisation de helloWorldLazy")
         findViewById(R.id.hello_world) as TextView
@@ -110,6 +117,48 @@ class MainActivity : AppCompatActivity() {
     private fun fonctionPermissions() {
         val vibrator = getSystemService(Context.VIBRATOR_SERVICE) as Vibrator
         vibrator.vibrate(500)
+
+        println("###### Permissions dangereuse #####")
+        val callPhone: Button = findViewById(R.id.callPhone)
+        callPhone.setOnClickListener {
+            if (ContextCompat.checkSelfPermission(
+                    this,
+                    android.Manifest.permission.CALL_PHONE
+                ) != PackageManager.PERMISSION_GRANTED
+            ) {
+                ActivityCompat.requestPermissions(
+                    this,
+                    arrayOf(android.Manifest.permission.CALL_PHONE),
+                    PERMISSION_CALL_PHONE
+                )
+            } else {
+                call()
+            }
+        }
+    }
+
+    override fun onRequestPermissionsResult(
+        requestCode: Int,
+        permissions: Array<out String>,
+        grantResults: IntArray
+    ) {
+        when (requestCode) {
+            PERMISSION_CALL_PHONE -> {
+                if (grantResults.isNotEmpty()
+                    && grantResults[0] == PackageManager.PERMISSION_GRANTED
+                ) {
+                    call()
+                }
+            }
+        }
+    }
+
+    private fun call() {
+        val callIntent = Intent(
+            Intent.ACTION_CALL,
+            Uri.parse("tel:0123456789")
+        )
+        startActivity(callIntent)
     }
 
     private fun fonctionFrameLayout() {

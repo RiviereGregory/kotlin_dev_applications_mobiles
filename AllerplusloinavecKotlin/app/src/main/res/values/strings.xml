@@ -18,4 +18,5 @@
     <string name="greyDark">Fragment greyDark</string>
     <string name="click_here">Click here</string>
     <string name="framelayout">frameLayout</string>
+    <string name="call_phone">call phone</string>
 </resources>
