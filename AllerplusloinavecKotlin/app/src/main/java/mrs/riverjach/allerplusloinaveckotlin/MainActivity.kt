@@ -6,6 +6,7 @@ import android.os.CountDownTimer
 import android.widget.Button
 import android.widget.TextView
 import androidx.appcompat.app.AppCompatActivity
+import mrs.riverjach.allerplusloinaveckotlin.activities.FrameLayoutActivity
 import mrs.riverjach.allerplusloinaveckotlin.activities.LayoutActivity
 import mrs.riverjach.allerplusloinaveckotlin.activities.SecondActivity
 import mrs.riverjach.allerplusloinaveckotlin.model.User
@@ -94,6 +95,18 @@ class MainActivity : AppCompatActivity() {
         println("###### fragment #####")
         println(SEPARATOR)
         fonctionFragment()
+        println(SEPARATOR)
+        println("###### frame layout #####")
+        println(SEPARATOR)
+        fonctionFrameLayout()
+    }
+
+    private fun fonctionFrameLayout() {
+        val button: Button = findViewById(R.id.startFrameLayout)
+        button.setOnClickListener {
+            val intent = Intent(this, FrameLayoutActivity::class.java)
+            startActivity(intent)
+        }
     }
 
     private fun fonctionFragment() {

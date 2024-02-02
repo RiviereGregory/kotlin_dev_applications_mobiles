@@ -14,4 +14,6 @@
     <string name="fragment">fragment</string>
     <string name="recette">Recette</string>
     <string name="greyDark">Fragment gris foncé</string>
+    <string name="click_here">Cliquer ici</string>
+    <string name="framelayout">frameLayout</string>
 </resources>

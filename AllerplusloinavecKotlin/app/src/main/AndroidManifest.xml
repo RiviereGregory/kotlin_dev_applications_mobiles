@@ -16,6 +16,9 @@
             android:name=".activities.SecondActivity"
             android:exported="false" />
         <activity
+            android:name=".activities.FrameLayoutActivity"
+            android:exported="false" />
+        <activity
             android:name=".activities.LayoutActivity"
             android:exported="false" />
         <activity
