@@ -1,8 +1,10 @@
 package mrs.riverjach.allerplusloinaveckotlin
 
+import android.content.Context
 import android.content.Intent
 import android.os.Bundle
 import android.os.CountDownTimer
+import android.os.Vibrator
 import android.widget.Button
 import android.widget.TextView
 import androidx.appcompat.app.AppCompatActivity
@@ -99,6 +101,15 @@ class MainActivity : AppCompatActivity() {
         println("###### frame layout #####")
         println(SEPARATOR)
         fonctionFrameLayout()
+        println(SEPARATOR)
+        println("###### Permissions #####")
+        println(SEPARATOR)
+        fonctionPermissions()
+    }
+
+    private fun fonctionPermissions() {
+        val vibrator = getSystemService(Context.VIBRATOR_SERVICE) as Vibrator
+        vibrator.vibrate(500)
     }
 
     private fun fonctionFrameLayout() {
