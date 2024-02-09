@@ -17,4 +17,8 @@
     <string name="click_here">Cliquer ici</string>
     <string name="framelayout">frameLayout</string>
     <string name="call_phone">call phone</string>
+    <string name="progressbar">ProgressBar</string>
+    <string name="go">GO</string>
+    <string name="chargement_des_donn_es_en_cours">Chargement des données en cours...</string>
+    <string name="chargement_des_donn_es">Chargement des données</string>
 </resources>

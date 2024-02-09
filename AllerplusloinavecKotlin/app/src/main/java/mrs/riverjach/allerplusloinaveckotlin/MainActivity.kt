@@ -14,6 +14,7 @@ import androidx.core.app.ActivityCompat
 import androidx.core.content.ContextCompat
 import mrs.riverjach.allerplusloinaveckotlin.activities.FrameLayoutActivity
 import mrs.riverjach.allerplusloinaveckotlin.activities.LayoutActivity
+import mrs.riverjach.allerplusloinaveckotlin.activities.ProgressBarActivity
 import mrs.riverjach.allerplusloinaveckotlin.activities.SecondActivity
 import mrs.riverjach.allerplusloinaveckotlin.model.User
 import mrs.riverjach.allerplusloinaveckotlin.utils.Armes
@@ -112,6 +113,18 @@ class MainActivity : AppCompatActivity() {
         println("###### Permissions #####")
         println(SEPARATOR)
         fonctionPermissions()
+        println(SEPARATOR)
+        println("###### ProgressBar #####")
+        println(SEPARATOR)
+        fonctionProgressBar()
+    }
+
+    private fun fonctionProgressBar() {
+        val button: Button = findViewById(R.id.progressBar)
+        button.setOnClickListener {
+            val intent = Intent(this, ProgressBarActivity::class.java)
+            startActivity(intent)
+        }
     }
 
     private fun fonctionPermissions() {
