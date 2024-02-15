@@ -2,6 +2,7 @@ package mrs.riverjach.allerplusloinaveckotlin.activities
 
 import android.os.Bundle
 import android.os.Handler
+import android.os.Looper
 import androidx.appcompat.app.AppCompatActivity
 import kotlinx.android.synthetic.main.swipe_refresh_activity.swipeRefreshButton
 import kotlinx.android.synthetic.main.swipe_refresh_activity.swipeRefreshLayout
@@ -27,7 +28,7 @@ class SwipeRefreshActivity : AppCompatActivity() {
     }
 
     private fun stopRefresh() {
-        val handler = Handler()
+        val handler = Handler(Looper.getMainLooper())
         handler.postDelayed({ swipeRefreshLayout.isRefreshing = false }, 2000)
     }
 }
