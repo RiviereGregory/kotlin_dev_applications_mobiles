@@ -29,7 +29,7 @@ class SwipeRefreshActivity : AppCompatActivity() {
 
         val button: Button = findViewById(R.id.swipeRefreshButton)
         button.setOnClickListener {
-            swipeRefreshLayout.isRefreshing = false
+            swipeRefreshLayout.isRefreshing = true
             textViewSwipe.text = "Kotlin"
             stopRefresh()
         }
