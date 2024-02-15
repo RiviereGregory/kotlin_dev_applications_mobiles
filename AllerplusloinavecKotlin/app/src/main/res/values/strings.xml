@@ -23,4 +23,7 @@
     <string name="go">GO</string>
     <string name="chargement_des_donn_es_en_cours">Chargement des données en cours...</string>
     <string name="chargement_des_donn_es">Chargement des données</string>
+    <string name="swiperefresh">SwipeRefresh</string>
+    <string name="rafraichir">Rafraichir</string>
+    <string name="quel_est_un_des_meilleurs_langages_de_programmtion">Quel est un des meilleurs langages de programmtion?</string>
 </resources>

@@ -26,6 +26,9 @@
             android:name=".activities.ProgressBarActivity"
             android:exported="false" />
         <activity
+            android:name=".activities.SwipeRefreshActivity"
+            android:exported="false" />
+        <activity
             android:name=".activities.FrameLayoutActivity"
             android:exported="false" />
         <activity

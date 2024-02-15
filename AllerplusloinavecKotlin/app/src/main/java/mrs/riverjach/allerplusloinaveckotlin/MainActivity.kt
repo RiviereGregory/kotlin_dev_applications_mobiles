@@ -16,6 +16,7 @@ import mrs.riverjach.allerplusloinaveckotlin.activities.FrameLayoutActivity
 import mrs.riverjach.allerplusloinaveckotlin.activities.LayoutActivity
 import mrs.riverjach.allerplusloinaveckotlin.activities.ProgressBarActivity
 import mrs.riverjach.allerplusloinaveckotlin.activities.SecondActivity
+import mrs.riverjach.allerplusloinaveckotlin.activities.SwipeRefreshActivity
 import mrs.riverjach.allerplusloinaveckotlin.model.User
 import mrs.riverjach.allerplusloinaveckotlin.utils.Armes
 import mrs.riverjach.allerplusloinaveckotlin.utils.Figure
@@ -117,6 +118,18 @@ class MainActivity : AppCompatActivity() {
         println("###### ProgressBar #####")
         println(SEPARATOR)
         fonctionProgressBar()
+        println(SEPARATOR)
+        println("###### Swipe refresh layout #####")
+        println(SEPARATOR)
+        fonctionSwipeRefresh()
+    }
+
+    private fun fonctionSwipeRefresh() {
+        val button: Button = findViewById(R.id.swipeRefresh)
+        button.setOnClickListener {
+            val intent = Intent(this, SwipeRefreshActivity::class.java)
+            startActivity(intent)
+        }
     }
 
     private fun fonctionProgressBar() {
