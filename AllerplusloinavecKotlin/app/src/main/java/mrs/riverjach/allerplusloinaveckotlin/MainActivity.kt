@@ -17,6 +17,7 @@ import mrs.riverjach.allerplusloinaveckotlin.activities.LayoutActivity
 import mrs.riverjach.allerplusloinaveckotlin.activities.ProgressBarActivity
 import mrs.riverjach.allerplusloinaveckotlin.activities.SecondActivity
 import mrs.riverjach.allerplusloinaveckotlin.activities.SwipeRefreshActivity
+import mrs.riverjach.allerplusloinaveckotlin.activities.WebViewActivity
 import mrs.riverjach.allerplusloinaveckotlin.model.User
 import mrs.riverjach.allerplusloinaveckotlin.utils.Armes
 import mrs.riverjach.allerplusloinaveckotlin.utils.Figure
@@ -122,6 +123,18 @@ class MainActivity : AppCompatActivity() {
         println("###### Swipe refresh layout #####")
         println(SEPARATOR)
         fonctionSwipeRefresh()
+        println(SEPARATOR)
+        println("###### WebView #####")
+        println(SEPARATOR)
+        fonctionWebView()
+    }
+
+    private fun fonctionWebView() {
+        val button: Button = findViewById(R.id.webViewButton)
+        button.setOnClickListener {
+            val intent = Intent(this, WebViewActivity::class.java)
+            startActivity(intent)
+        }
     }
 
     private fun fonctionSwipeRefresh() {
