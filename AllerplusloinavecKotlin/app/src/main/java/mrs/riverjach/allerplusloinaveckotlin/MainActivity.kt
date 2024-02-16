@@ -19,6 +19,8 @@ import mrs.riverjach.allerplusloinaveckotlin.activities.SecondActivity
 import mrs.riverjach.allerplusloinaveckotlin.activities.SwipeRefreshActivity
 import mrs.riverjach.allerplusloinaveckotlin.activities.WebViewActivity
 import mrs.riverjach.allerplusloinaveckotlin.model.User
+import mrs.riverjach.allerplusloinaveckotlin.parser.GetData
+import mrs.riverjach.allerplusloinaveckotlin.services.HttpServiceJson
 import mrs.riverjach.allerplusloinaveckotlin.services.HttpServiceString
 import mrs.riverjach.allerplusloinaveckotlin.utils.Armes
 import mrs.riverjach.allerplusloinaveckotlin.utils.Figure
@@ -36,6 +38,7 @@ import retrofit2.Call
 import retrofit2.Callback
 import retrofit2.Response
 import retrofit2.Retrofit
+import retrofit2.converter.gson.GsonConverterFactory
 import retrofit2.converter.scalars.ScalarsConverterFactory
 import java.util.Arrays
 
@@ -140,6 +143,12 @@ class MainActivity : AppCompatActivity() {
     }
 
     private fun fonctionHttp() {
+        httpString()
+
+        httpJson()
+    }
+
+    private fun httpString() {
         val button: Button = findViewById(R.id.httpButton)
         button.setOnClickListener {
             val retrofit = Retrofit.Builder()
@@ -155,6 +164,29 @@ class MainActivity : AppCompatActivity() {
 
                 override fun onResponse(call: Call<String>, response: Response<String>) {
                     println("Réponse serveur : ${response.code()} / ${response.body()}")
+                }
+            })
+        }
+    }
+
+    private fun httpJson() {
+        val button: Button = findViewById(R.id.httpJsonButton)
+        button.setOnClickListener {
+            val retrofit = Retrofit.Builder()
+                .baseUrl("https://httpbin.org")
+                .addConverterFactory(GsonConverterFactory.create())
+                .build()
+            val service: HttpServiceJson = retrofit.create(HttpServiceJson::class.java)
+            val call = service.getUserInfo()
+            call.enqueue(object : Callback<GetData> {
+                override fun onFailure(call: Call<GetData>, t: Throwable) {
+                    println("Erreur communication serveur :${t.message}")
+                }
+
+                override fun onResponse(call: Call<GetData>, response: Response<GetData>) {
+                    val getData = response?.body()
+                    println()
+                    println("Réponse serveur : ${response.code()} / ${getData?.ip} - ${getData?.url}")
                 }
             })
         }
