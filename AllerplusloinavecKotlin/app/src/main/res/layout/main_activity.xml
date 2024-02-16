@@ -53,4 +53,10 @@
         android:layout_height="wrap_content"
         android:text="@string/webview" />
 
+    <Button
+        android:id="@+id/httpButton"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/http" />
+
 </LinearLayout>

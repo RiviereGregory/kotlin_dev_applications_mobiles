@@ -19,6 +19,7 @@ import mrs.riverjach.allerplusloinaveckotlin.activities.SecondActivity
 import mrs.riverjach.allerplusloinaveckotlin.activities.SwipeRefreshActivity
 import mrs.riverjach.allerplusloinaveckotlin.activities.WebViewActivity
 import mrs.riverjach.allerplusloinaveckotlin.model.User
+import mrs.riverjach.allerplusloinaveckotlin.services.HttpServiceString
 import mrs.riverjach.allerplusloinaveckotlin.utils.Armes
 import mrs.riverjach.allerplusloinaveckotlin.utils.Figure
 import mrs.riverjach.allerplusloinaveckotlin.utils.Figure.Unite.description
@@ -31,6 +32,11 @@ import mrs.riverjach.allerplusloinaveckotlin.utils.filterPositif
 import mrs.riverjach.allerplusloinaveckotlin.utils.isEvent
 import mrs.riverjach.allerplusloinaveckotlin.utils.swap
 import mrs.riverjach.allerplusloinaveckotlin.utils.switch
+import retrofit2.Call
+import retrofit2.Callback
+import retrofit2.Response
+import retrofit2.Retrofit
+import retrofit2.converter.scalars.ScalarsConverterFactory
 import java.util.Arrays
 
 private const val SEPARATOR = "###### ###### #####"
@@ -127,6 +133,31 @@ class MainActivity : AppCompatActivity() {
         println("###### WebView #####")
         println(SEPARATOR)
         fonctionWebView()
+        println(SEPARATOR)
+        println("###### HTTP #####")
+        println(SEPARATOR)
+        fonctionHttp()
+    }
+
+    private fun fonctionHttp() {
+        val button: Button = findViewById(R.id.httpButton)
+        button.setOnClickListener {
+            val retrofit = Retrofit.Builder()
+                .baseUrl("https://httpbin.org")
+                .addConverterFactory(ScalarsConverterFactory.create())
+                .build()
+            val service: HttpServiceString = retrofit.create(HttpServiceString::class.java)
+            val call = service.getUserAgent()
+            call.enqueue(object : Callback<String> {
+                override fun onFailure(call: Call<String>, t: Throwable) {
+                    println("Erreur communication serveur :${t.message}")
+                }
+
+                override fun onResponse(call: Call<String>, response: Response<String>) {
+                    println("Réponse serveur : ${response.code()} / ${response.body()}")
+                }
+            })
+        }
     }
 
     private fun fonctionWebView() {
