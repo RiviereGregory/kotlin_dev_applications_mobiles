@@ -163,6 +163,7 @@ class MainActivity : AppCompatActivity() {
         val t2 = Threading()
         t1.start()
         t2.start()
+        t1.join()
         for (i in 1..3) {
             println("${Thread.currentThread()} : $i")
         }
