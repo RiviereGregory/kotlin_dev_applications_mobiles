@@ -146,6 +146,10 @@ class MainActivity : AppCompatActivity() {
         println("###### Database #####")
         println(SEPARATOR)
         fonctionDatabase()
+        println(SEPARATOR)
+        println("###### Thread Use #####")
+        println(SEPARATOR)
+        println("${Thread.currentThread()} a été  exécuté.")
     }
 
     private fun fonctionDatabase() {
