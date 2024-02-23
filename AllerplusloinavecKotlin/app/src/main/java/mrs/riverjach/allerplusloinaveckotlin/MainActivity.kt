@@ -24,6 +24,7 @@ import mrs.riverjach.allerplusloinaveckotlin.model.UserForBD
 import mrs.riverjach.allerplusloinaveckotlin.parser.GetData
 import mrs.riverjach.allerplusloinaveckotlin.services.HttpServiceJson
 import mrs.riverjach.allerplusloinaveckotlin.services.HttpServiceString
+import mrs.riverjach.allerplusloinaveckotlin.threads.Threading
 import mrs.riverjach.allerplusloinaveckotlin.utils.Armes
 import mrs.riverjach.allerplusloinaveckotlin.utils.Figure
 import mrs.riverjach.allerplusloinaveckotlin.utils.Figure.Unite.description
@@ -150,6 +151,22 @@ class MainActivity : AppCompatActivity() {
         println("###### Thread Use #####")
         println(SEPARATOR)
         println("${Thread.currentThread()} a été  exécuté.")
+        println(SEPARATOR)
+        println("###### Thread Use #####")
+        println(SEPARATOR)
+        fonctionThread()
+    }
+
+    private fun fonctionThread() {
+        val start = System.currentTimeMillis()
+        val t1 = Threading()
+        val t2 = Threading()
+        t1.start()
+        t2.start()
+        for (i in 1..3) {
+            println("${Thread.currentThread()} : $i")
+        }
+        println("durée d'exécution : ${System.currentTimeMillis() - start}")
     }
 
     private fun fonctionDatabase() {
