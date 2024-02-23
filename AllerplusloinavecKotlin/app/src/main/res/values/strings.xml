@@ -28,4 +28,6 @@
     <string name="quel_est_un_des_meilleurs_langages_de_programmtion">Quel est un des meilleurs langages de programmtion?</string>
     <string name="webview">WebView</string>
     <string name="http">HTTP</string>
+    <string name="http_json">HTTP Json</string>
+    <string name="user_database">User database</string>
 </resources>

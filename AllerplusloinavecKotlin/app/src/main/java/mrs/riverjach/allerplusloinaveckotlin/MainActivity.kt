@@ -18,7 +18,9 @@ import mrs.riverjach.allerplusloinaveckotlin.activities.ProgressBarActivity
 import mrs.riverjach.allerplusloinaveckotlin.activities.SecondActivity
 import mrs.riverjach.allerplusloinaveckotlin.activities.SwipeRefreshActivity
 import mrs.riverjach.allerplusloinaveckotlin.activities.WebViewActivity
+import mrs.riverjach.allerplusloinaveckotlin.db.Database
 import mrs.riverjach.allerplusloinaveckotlin.model.User
+import mrs.riverjach.allerplusloinaveckotlin.model.UserForBD
 import mrs.riverjach.allerplusloinaveckotlin.parser.GetData
 import mrs.riverjach.allerplusloinaveckotlin.services.HttpServiceJson
 import mrs.riverjach.allerplusloinaveckotlin.services.HttpServiceString
@@ -140,6 +142,26 @@ class MainActivity : AppCompatActivity() {
         println("###### HTTP #####")
         println(SEPARATOR)
         fonctionHttp()
+        println(SEPARATOR)
+        println("###### Database #####")
+        println(SEPARATOR)
+        fonctionDatabase()
+    }
+
+    private fun fonctionDatabase() {
+        val button: Button = findViewById(R.id.databseButton)
+        button.setOnClickListener {
+            val database = Database(this)
+            if (database.getUserCount() == 0) {
+                database.createUser(UserForBD("Tom", 16, "tom@domain.fr"))
+                database.createUser(UserForBD("Charlotte", 21, "charlotte@domain.fr"))
+                database.createUser(UserForBD("Morgane", 24, "morgane@domain.fr"))
+            }
+            val users = database.getAllUsers()
+            for (user in users) {
+                println("Utilisateur lu la BDD: $user")
+            }
+        }
     }
 
     private fun fonctionHttp() {

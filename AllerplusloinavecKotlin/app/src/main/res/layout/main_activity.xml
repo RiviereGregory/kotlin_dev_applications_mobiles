@@ -63,6 +63,12 @@
         android:id="@+id/httpJsonButton"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="HTTP Json" />
+        android:text="@string/http_json" />
+
+    <Button
+        android:id="@+id/databseButton"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/user_database" />
 
 </LinearLayout>
