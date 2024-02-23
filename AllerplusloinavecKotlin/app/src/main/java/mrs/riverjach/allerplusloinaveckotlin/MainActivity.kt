@@ -162,8 +162,9 @@ class MainActivity : AppCompatActivity() {
         val t1 = Threading()
         val t2 = Threading()
         t1.start()
+        t1.join() // t1 doit finir avant de passer à un autre thread
         t2.start()
-        t1.join()
+        t2.join() // t2 doit finir avant de passer à un autre thread
         for (i in 1..3) {
             println("${Thread.currentThread()} : $i")
         }
