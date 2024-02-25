@@ -28,4 +28,6 @@
     <string name="http">HTTP</string>
     <string name="http_json">HTTP Json</string>
     <string name="user_database">User database</string>
+    <string name="start">Start</string>
+    <string name="count">Count</string>
 </resources>
