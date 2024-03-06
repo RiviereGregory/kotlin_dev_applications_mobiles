@@ -167,7 +167,7 @@ class MainActivity : AppCompatActivity() {
     private fun fonctionCoroutines() =
         runBlocking { // utisation explicite du caractère bloquant de la focntion
             val start = System.currentTimeMillis()
-            GlobalScope.launch {
+            val job = GlobalScope.launch {
                 delay(1000)
                 println("Thread: ${Thread.currentThread().name}")
                 println("World!")
@@ -175,7 +175,7 @@ class MainActivity : AppCompatActivity() {
             }
             println("Thread: ${Thread.currentThread().name}")
             println("Hello,")
-            delay(2000)
+            job.join() // permet d'attendre que l'execution de job ce finisse
             println("Temps d'execution UI Thread : ${System.currentTimeMillis() - start} ms")
         }
 
