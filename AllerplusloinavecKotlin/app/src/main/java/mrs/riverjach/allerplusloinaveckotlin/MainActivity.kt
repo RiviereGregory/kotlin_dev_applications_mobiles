@@ -184,6 +184,34 @@ class MainActivity : AppCompatActivity() {
     private fun fonctionCoroutinesChannels() {
         fonctionChannel()
         fonctionChannelProducerConsumer()
+        fonctionChannelProducerConsumerPipeline()
+    }
+
+    private fun fonctionChannelProducerConsumerPipeline() =
+        runBlocking {
+            val numbers = produceNumbers()
+            val square = produceSquares(numbers)
+            for (i in 1..10) print(square.receive())
+            println("done!!")
+            square.cancel() // arret des coroutines
+            numbers.cancel()
+        }
+
+    fun CoroutineScope.produceNumbers(): ReceiveChannel<Int> = produce()
+    {
+        var x = 1
+        while (true) {
+            print("*")
+            send(x++)
+        }
+    }
+
+    fun CoroutineScope.produceSquares(numbers: ReceiveChannel<Int>): ReceiveChannel<Int> = produce()
+    {
+        for (x in numbers) {
+            print("#")
+            send(x * x)
+        }
     }
 
     private fun fonctionChannelProducerConsumer() =
