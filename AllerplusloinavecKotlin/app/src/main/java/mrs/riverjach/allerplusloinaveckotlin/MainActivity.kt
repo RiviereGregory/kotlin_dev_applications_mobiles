@@ -15,6 +15,7 @@ import androidx.core.content.ContextCompat
 import kotlinx.coroutines.GlobalScope
 import kotlinx.coroutines.delay
 import kotlinx.coroutines.launch
+import kotlinx.coroutines.runBlocking
 import mrs.riverjach.allerplusloinaveckotlin.activities.FrameLayoutActivity
 import mrs.riverjach.allerplusloinaveckotlin.activities.LayoutActivity
 import mrs.riverjach.allerplusloinaveckotlin.activities.ProgressBarActivity
@@ -173,7 +174,9 @@ class MainActivity : AppCompatActivity() {
         }
         println("Thread: ${Thread.currentThread().name}")
         println("Hello,")
-        Thread.sleep(2000)
+        runBlocking { // Coroutines bloquante
+            delay(2000)
+        }
         println("Temps d'execution UI Thread : ${System.currentTimeMillis() - start} ms")
     }
 
