@@ -12,6 +12,9 @@ import android.widget.TextView
 import androidx.appcompat.app.AppCompatActivity
 import androidx.core.app.ActivityCompat
 import androidx.core.content.ContextCompat
+import kotlinx.coroutines.GlobalScope
+import kotlinx.coroutines.delay
+import kotlinx.coroutines.launch
 import mrs.riverjach.allerplusloinaveckotlin.activities.FrameLayoutActivity
 import mrs.riverjach.allerplusloinaveckotlin.activities.LayoutActivity
 import mrs.riverjach.allerplusloinaveckotlin.activities.ProgressBarActivity
@@ -155,6 +158,23 @@ class MainActivity : AppCompatActivity() {
         println("###### Thread Use #####")
         println(SEPARATOR)
         fonctionThread()
+        println("###### Coroutines #####")
+        println(SEPARATOR)
+        fonctionCoroutines()
+    }
+
+    private fun fonctionCoroutines() {
+        val start = System.currentTimeMillis()
+        GlobalScope.launch {
+            delay(1000)
+            println("Thread: ${Thread.currentThread().name}")
+            println("World!")
+            println("Temps d'execution coroutine : ${System.currentTimeMillis() - start} ms")
+        }
+        println("Thread: ${Thread.currentThread().name}")
+        println("Hello,")
+        Thread.sleep(2000)
+        println("Temps d'execution UI Thread : ${System.currentTimeMillis() - start} ms")
     }
 
     private fun fonctionThread() {
