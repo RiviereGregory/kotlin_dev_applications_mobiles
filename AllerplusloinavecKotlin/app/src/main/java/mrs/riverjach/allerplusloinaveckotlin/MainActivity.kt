@@ -13,6 +13,7 @@ import androidx.appcompat.app.AppCompatActivity
 import androidx.core.app.ActivityCompat
 import androidx.core.content.ContextCompat
 import kotlinx.coroutines.GlobalScope
+import kotlinx.coroutines.channels.Channel
 import kotlinx.coroutines.coroutineScope
 import kotlinx.coroutines.delay
 import kotlinx.coroutines.launch
@@ -170,7 +171,26 @@ class MainActivity : AppCompatActivity() {
         println(SEPARATOR)
         fonctionCoroutinesSuspend()
         println(SEPARATOR)
+        println("###### Coroutines Channels #####")
+        println(SEPARATOR)
+        fonctionCoroutinesChannels()
+        println(SEPARATOR)
     }
+
+    private fun fonctionCoroutinesChannels() {
+        fonctionChannel()
+    }
+
+    private fun fonctionChannel() =
+        runBlocking {
+            val channel = Channel<Int>()
+            launch {
+                for (x in 1..5) channel.send(x * x)
+            }
+            repeat(5) { println(channel.receive()) }
+
+            println("done !")
+        }
 
     private fun fonctionCoroutinesSuspend() =
         runBlocking {
