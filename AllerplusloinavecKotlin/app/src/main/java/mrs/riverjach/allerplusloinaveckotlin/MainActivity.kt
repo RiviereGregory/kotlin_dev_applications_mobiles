@@ -166,7 +166,26 @@ class MainActivity : AppCompatActivity() {
         println("###### Coroutines Portée #####")
         println(SEPARATOR)
         fonctionCoroutinesPortee()
+        println("###### Coroutines Suspend #####")
+        println(SEPARATOR)
+        fonctionCoroutinesSuspend()
+        println(SEPARATOR)
     }
+
+    private fun fonctionCoroutinesSuspend() =
+        runBlocking {
+            launch {
+                doWorld()
+            }
+            println("Hello,")
+
+        }
+
+    suspend private fun doWorld() { // suspend permet d'utiliser delay
+        delay(1000)
+        println("World!")
+    }
+
 
     private fun fonctionCoroutinesPortee() =
         runBlocking {
