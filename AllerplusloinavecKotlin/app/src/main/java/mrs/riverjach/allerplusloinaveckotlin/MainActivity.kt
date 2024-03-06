@@ -13,6 +13,7 @@ import androidx.appcompat.app.AppCompatActivity
 import androidx.core.app.ActivityCompat
 import androidx.core.content.ContextCompat
 import kotlinx.coroutines.GlobalScope
+import kotlinx.coroutines.coroutineScope
 import kotlinx.coroutines.delay
 import kotlinx.coroutines.launch
 import kotlinx.coroutines.runBlocking
@@ -162,7 +163,32 @@ class MainActivity : AppCompatActivity() {
         println("###### Coroutines #####")
         println(SEPARATOR)
         fonctionCoroutines()
+        println("###### Coroutines Portée #####")
+        println(SEPARATOR)
+        fonctionCoroutinesPortee()
     }
+
+    private fun fonctionCoroutinesPortee() =
+        runBlocking {
+            launch {
+                delay(200)
+                print("Thread: ${Thread.currentThread().name} ==>")
+                println("Task from runBlocking")
+            }
+
+            coroutineScope {
+                launch {
+                    delay(500)
+                    print("Thread: ${Thread.currentThread().name} ==>")
+                    println("Task from nesed launch")
+                }
+                delay(100)
+                print("Thread: ${Thread.currentThread().name} ==>")
+                println("Task from coroutinescope")
+            }
+            print("Thread: ${Thread.currentThread().name} ==>")
+            println("Coroutine scope is over")
+        }
 
     private fun fonctionCoroutines() =
         runBlocking { // utisation explicite du caractère bloquant de la focntion
