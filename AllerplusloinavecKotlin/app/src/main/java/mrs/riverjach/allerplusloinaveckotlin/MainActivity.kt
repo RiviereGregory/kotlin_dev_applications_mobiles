@@ -12,8 +12,12 @@ import android.widget.TextView
 import androidx.appcompat.app.AppCompatActivity
 import androidx.core.app.ActivityCompat
 import androidx.core.content.ContextCompat
+import kotlinx.coroutines.CoroutineScope
 import kotlinx.coroutines.GlobalScope
 import kotlinx.coroutines.channels.Channel
+import kotlinx.coroutines.channels.ReceiveChannel
+import kotlinx.coroutines.channels.consumeEach
+import kotlinx.coroutines.channels.produce
 import kotlinx.coroutines.coroutineScope
 import kotlinx.coroutines.delay
 import kotlinx.coroutines.launch
@@ -179,6 +183,24 @@ class MainActivity : AppCompatActivity() {
 
     private fun fonctionCoroutinesChannels() {
         fonctionChannel()
+        fonctionChannelProducerConsumer()
+    }
+
+    private fun fonctionChannelProducerConsumer() =
+        runBlocking {
+            val square = produceSquares(10)
+            square.consumeEach {
+                print("$it/")
+            }
+            println("done!!")
+        }
+
+    fun CoroutineScope.produceSquares(n: Int): ReceiveChannel<Int> = produce()
+    {
+        for (x in 1..n) {
+            print("*")
+            send(x * x)
+        }
     }
 
     private fun fonctionChannel() =
