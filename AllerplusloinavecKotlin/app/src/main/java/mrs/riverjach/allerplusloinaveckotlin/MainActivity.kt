@@ -164,21 +164,20 @@ class MainActivity : AppCompatActivity() {
         fonctionCoroutines()
     }
 
-    private fun fonctionCoroutines() {
-        val start = System.currentTimeMillis()
-        GlobalScope.launch {
-            delay(1000)
+    private fun fonctionCoroutines() =
+        runBlocking { // utisation explicite du caractère bloquant de la focntion
+            val start = System.currentTimeMillis()
+            GlobalScope.launch {
+                delay(1000)
+                println("Thread: ${Thread.currentThread().name}")
+                println("World!")
+                println("Temps d'execution coroutine : ${System.currentTimeMillis() - start} ms")
+            }
             println("Thread: ${Thread.currentThread().name}")
-            println("World!")
-            println("Temps d'execution coroutine : ${System.currentTimeMillis() - start} ms")
-        }
-        println("Thread: ${Thread.currentThread().name}")
-        println("Hello,")
-        runBlocking { // Coroutines bloquante
+            println("Hello,")
             delay(2000)
+            println("Temps d'execution UI Thread : ${System.currentTimeMillis() - start} ms")
         }
-        println("Temps d'execution UI Thread : ${System.currentTimeMillis() - start} ms")
-    }
 
     private fun fonctionThread() {
         val start = System.currentTimeMillis()
