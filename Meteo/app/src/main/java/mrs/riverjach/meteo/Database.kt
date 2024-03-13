@@ -2,9 +2,11 @@
 
 package mrs.riverjach.meteo
 
+import android.content.ContentValues
 import android.content.Context
 import android.database.sqlite.SQLiteDatabase
 import android.database.sqlite.SQLiteOpenHelper
+import mrs.riverjach.meteo.city.City
 
 private const val DATABASE_NAME = "meteodb"
 private const val DATABASE_VERSION = 1
@@ -26,5 +28,12 @@ class Database(context: Context) :
 
     override fun onUpgrade(db: SQLiteDatabase?, oldVersion: Int, newVersion: Int) {
         // Code pour changement de version de la BDD
+    }
+
+    fun createCity(city: City): Boolean {
+        val values = ContentValues()
+        values.put(CITY_KEY_NAME, city.name)
+        val id = writableDatabase.insert(CITY_TABLE_NAME, null, values)
+        return id != -1L
     }
 }

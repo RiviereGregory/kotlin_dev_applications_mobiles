@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="app_name">Metéo</string>
+    <string name="name_of_the_city">Nom de la ville ?</string>
+    <string name="hint_name_city">Paris,London,…</string>
+    <string name="create_a_city">Créer une ville</string>
+    <string name="cancel">Annuler</string>
+    <string name="could_not_create_the_city">Impossible de créer la ville …</string>
+</resources>

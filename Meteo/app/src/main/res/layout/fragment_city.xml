@@ -4,10 +4,4 @@
     android:layout_height="match_parent"
     android:orientation="vertical">
 
-    <fragment
-        android:id="@+id/city_fragment"
-        android:name="mrs.riverjach.meteo.city.CityFragment"
-        android:layout_width="match_parent"
-        android:layout_height="match_parent" />
-
 </LinearLayout>
