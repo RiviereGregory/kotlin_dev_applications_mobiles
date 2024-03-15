@@ -6,4 +6,6 @@
     <string name="create_a_city">Créer une ville</string>
     <string name="cancel">Annuler</string>
     <string name="could_not_create_the_city">Impossible de créer la ville …</string>
+    <string name="city_2">City 2</string>
+    <string name="city_1">City 1</string>
 </resources>

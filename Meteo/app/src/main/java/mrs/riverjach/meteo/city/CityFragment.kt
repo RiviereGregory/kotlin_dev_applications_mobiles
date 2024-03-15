@@ -1,5 +1,6 @@
 package mrs.riverjach.meteo.city
 
+import android.annotation.SuppressLint
 import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.Menu
@@ -9,13 +10,17 @@ import android.view.View
 import android.view.ViewGroup
 import android.widget.Toast
 import androidx.fragment.app.Fragment
+import androidx.recyclerview.widget.LinearLayoutManager
+import androidx.recyclerview.widget.RecyclerView
 import mrs.riverjach.meteo.App
 import mrs.riverjach.meteo.Database
 import mrs.riverjach.meteo.R
 
-class CityFragment : Fragment() {
+class CityFragment : Fragment(), CityAdapter.CityItemListener {
     private lateinit var database: Database
     private lateinit var cities: MutableList<City>
+    private lateinit var recyclerView: RecyclerView
+    private lateinit var cityAdapter: CityAdapter
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -24,13 +29,23 @@ class CityFragment : Fragment() {
         cities = mutableListOf()
     }
 
+    @SuppressLint("MissingInflatedId")
     override fun onCreateView(
         inflater: LayoutInflater,
         container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View? {
         val view = inflater.inflate(R.layout.fragment_city, container, false)
+        recyclerView = view.findViewById(R.id.cities_recycler_view)
+        recyclerView.layoutManager = LinearLayoutManager(context)
         return view
+    }
+
+    override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
+        super.onViewCreated(view, savedInstanceState)
+        cities = database.getAllCities()
+        cityAdapter = CityAdapter(cities, this)
+        recyclerView.adapter = cityAdapter
     }
 
     override fun onCreateOptionsMenu(menu: Menu, inflater: MenuInflater) {
@@ -64,6 +79,7 @@ class CityFragment : Fragment() {
     private fun saveCity(city: City) {
         if (database.createCity(city)) {
             cities.add(city)
+            cityAdapter.notifyDataSetChanged()
         } else {
             Toast.makeText(
                 context,
@@ -71,6 +87,14 @@ class CityFragment : Fragment() {
                 Toast.LENGTH_SHORT
             ).show()
         }
+    }
+
+    override fun onCitySelected(city: City) {
+        TODO("Not yet implemented")
+    }
+
+    override fun onCityDeleted(city: City) {
+        TODO("Not yet implemented")
     }
 
 }
