@@ -9,18 +9,18 @@ import androidx.recyclerview.widget.RecyclerView
 import mrs.riverjach.meteo.R
 
 class CityAdapter(
-    val cities: List<City>,
-    val cityClickListener: CityItemListener
+    private val cities: List<City>,
+    private val cityClickListener: CityItemListener
 ) :
     RecyclerView.Adapter<CityAdapter.ViewHolder>(), View.OnClickListener {
 
     class ViewHolder(itemView: View) : RecyclerView.ViewHolder(itemView) {
-        val cardView1 = itemView.findViewById<CardView>(R.id.card_view1)
-        val cardView2 = itemView.findViewById<CardView>(R.id.card_view2)
-        val textView1 = itemView.findViewById<TextView>(R.id.ville1)
-        val textView2 = itemView.findViewById<TextView>(R.id.ville2)
-        val deleteView1 = itemView.findViewById<View>(R.id.image_view_bin1)
-        val deleteView2 = itemView.findViewById<View>(R.id.image_view_bin2)
+        val cardView1: CardView = itemView.findViewById(R.id.card_view1)
+        val cardView2: CardView = itemView.findViewById(R.id.card_view2)
+        val textView1: TextView = itemView.findViewById(R.id.ville1)
+        val textView2: TextView = itemView.findViewById(R.id.ville2)
+        val deleteView1: View = itemView.findViewById(R.id.image_view_bin1)
+        val deleteView2: View = itemView.findViewById(R.id.image_view_bin2)
     }
 
     interface CityItemListener {

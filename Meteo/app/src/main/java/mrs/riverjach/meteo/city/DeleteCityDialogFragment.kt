@@ -13,7 +13,7 @@ class DeleteCityDialogFragment : DialogFragment() {
     }
 
     companion object {
-        val EXTRA_CITY_NAME = "METEO.EXTRA_CITY_NAME"
+        const val EXTRA_CITY_NAME = "METEO.EXTRA_CITY_NAME"
         fun newInstance(cityName: String): DeleteCityDialogFragment {
             val fragment = DeleteCityDialogFragment()
             fragment.arguments = Bundle().apply {
@@ -23,7 +23,7 @@ class DeleteCityDialogFragment : DialogFragment() {
         }
     }
 
-    lateinit var cityName: String
+    private lateinit var cityName: String
     var listener: DeleteCityDialogListener? = null
 
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -34,11 +34,13 @@ class DeleteCityDialogFragment : DialogFragment() {
     override fun onCreateDialog(savedInstanceState: Bundle?): Dialog {
         val builder = context?.let { AlertDialog.Builder(it) }
         builder!!.setTitle(getString(R.string.delete_city_title, cityName))
-            .setPositiveButton(getString(R.string.delete_city),
-                { _, _ -> listener?.onDialogPositiveClick() })
-            .setNegativeButton(getString(R.string.cancel),
-                { _, _ -> listener?.onDialogNegativeClick() })
-        return builder!!.create()
+            .setPositiveButton(
+                getString(R.string.delete_city)
+            ) { _, _ -> listener?.onDialogPositiveClick() }
+            .setNegativeButton(
+                getString(R.string.cancel)
+            ) { _, _ -> listener?.onDialogNegativeClick() }
+        return builder.create()
     }
 
 }

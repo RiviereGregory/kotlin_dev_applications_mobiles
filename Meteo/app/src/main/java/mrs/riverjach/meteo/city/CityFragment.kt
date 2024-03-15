@@ -1,6 +1,5 @@
 package mrs.riverjach.meteo.city
 
-import android.annotation.SuppressLint
 import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.Menu
@@ -29,7 +28,7 @@ class CityFragment : Fragment(), CityAdapter.CityItemListener {
         cities = mutableListOf()
     }
 
-    @SuppressLint("MissingInflatedId")
+
     override fun onCreateView(
         inflater: LayoutInflater,
         container: ViewGroup?,
@@ -72,7 +71,12 @@ class CityFragment : Fragment(), CityAdapter.CityItemListener {
 
             override fun onDialogNegativeClick() {}
         }
-        fragmentManager?.let { createCityFragment.show(it, "CreateCityDialogFragment") }
+        activity?.supportFragmentManager?.let {
+            createCityFragment.show(
+                it,
+                "CreateCityDialogFragment"
+            )
+        }
 
     }
 
@@ -107,7 +111,12 @@ class CityFragment : Fragment(), CityAdapter.CityItemListener {
 
             override fun onDialogNegativeClick() {}
         }
-        deleteCityDialogFragment.show(requireFragmentManager(), "deletedcitydialogfragment")
+        activity?.supportFragmentManager?.let {
+            deleteCityDialogFragment.show(
+                it,
+                "DeletedCityDialogFragment"
+            )
+        }
     }
 
     private fun deleteCity(city: City) {

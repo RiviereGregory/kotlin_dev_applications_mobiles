@@ -25,14 +25,15 @@ class CreateCityDialogFragment : DialogFragment() {
         }
         builder?.setTitle(getString(R.string.name_of_the_city))
             ?.setView(input)
-            ?.setPositiveButton(getString(R.string.create_a_city),
-                { _, _ ->
-                    listener?.onDialogPositiveClick(input.text.toString())
-                })
-            ?.setNegativeButton(getString(R.string.cancel), { dialog, _ ->
+            ?.setPositiveButton(
+                getString(R.string.create_a_city)
+            ) { _, _ ->
+                listener?.onDialogPositiveClick(input.text.toString())
+            }
+            ?.setNegativeButton(getString(R.string.cancel)) { dialog, _ ->
                 dialog.cancel()
                 listener?.onDialogNegativeClick()
-            })
+            }
         return builder!!.create()
     }
 }

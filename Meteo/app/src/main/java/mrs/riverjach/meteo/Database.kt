@@ -2,7 +2,6 @@
 
 package mrs.riverjach.meteo
 
-import android.annotation.SuppressLint
 import android.content.ContentValues
 import android.content.Context
 import android.database.sqlite.SQLiteDatabase
@@ -39,14 +38,13 @@ class Database(context: Context) :
         return id != -1L
     }
 
-    @SuppressLint("Range")
     fun getAllCities(): MutableList<City> {
         val cities = mutableListOf<City>()
         readableDatabase.rawQuery(CITY_SELECT_ALL, null).use { cursor ->
             while (cursor.moveToNext()) {
                 val city = City(
-                    cursor.getInt(cursor.getColumnIndex(CITY_KEY_ID)),
-                    cursor.getString(cursor.getColumnIndex(CITY_KEY_NAME))
+                    cursor.getInt(cursor.getColumnIndexOrThrow(CITY_KEY_ID)),
+                    cursor.getString(cursor.getColumnIndexOrThrow(CITY_KEY_NAME))
                 )
                 cities.add(city)
             }
@@ -64,7 +62,7 @@ class Database(context: Context) :
             deleteCount = writableDatabase.delete(
                 CITY_TABLE_NAME,
                 "$CITY_KEY_NAME=?",
-                arrayOf("${city.name}")
+                arrayOf(city.name)
             )
         }
         return deleteCount > 0
