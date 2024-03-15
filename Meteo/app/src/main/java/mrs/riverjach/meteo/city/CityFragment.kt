@@ -94,7 +94,38 @@ class CityFragment : Fragment(), CityAdapter.CityItemListener {
     }
 
     override fun onCityDeleted(city: City) {
-        TODO("Not yet implemented")
+        showDeleteCityDialog(city)
+    }
+
+    private fun showDeleteCityDialog(city: City) {
+        val deleteCityDialogFragment = DeleteCityDialogFragment.newInstance(city.name)
+        deleteCityDialogFragment.listener = object :
+            DeleteCityDialogFragment.DeleteCityDialogListener {
+            override fun onDialogPositiveClick() {
+                deleteCity(city)
+            }
+
+            override fun onDialogNegativeClick() {}
+        }
+        deleteCityDialogFragment.show(requireFragmentManager(), "deletedcitydialogfragment")
+    }
+
+    private fun deleteCity(city: City) {
+        if (database.deleteCity(city)) {
+            cities.remove(city)
+            cityAdapter.notifyDataSetChanged()
+            Toast.makeText(
+                context,
+                getString(R.string.city_has_deleted, city.name),
+                Toast.LENGTH_SHORT
+            ).show()
+        } else {
+            Toast.makeText(
+                context,
+                getString(R.string.city_not_deleted, city.name),
+                Toast.LENGTH_SHORT
+            ).show()
+        }
     }
 
 }

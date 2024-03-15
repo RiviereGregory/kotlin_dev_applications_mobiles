@@ -19,6 +19,8 @@ class CityAdapter(
         val cardView2 = itemView.findViewById<CardView>(R.id.card_view2)
         val textView1 = itemView.findViewById<TextView>(R.id.ville1)
         val textView2 = itemView.findViewById<TextView>(R.id.ville2)
+        val deleteView1 = itemView.findViewById<View>(R.id.image_view_bin1)
+        val deleteView2 = itemView.findViewById<View>(R.id.image_view_bin2)
     }
 
     interface CityItemListener {
@@ -41,12 +43,16 @@ class CityAdapter(
             holder.textView1.text = cities[2 * position].name
             holder.cardView1.setOnClickListener(this)
             holder.cardView1.tag = cities[2 * position]
+            holder.deleteView1.tag = cities[2 * position]
+            holder.deleteView1.setOnClickListener(this)
         }
         if (2 * position + 1 < cities.size) {
             holder.textView2.text = cities[2 * position + 1].name
             holder.cardView2.setOnClickListener(this)
             holder.cardView2.tag = cities[2 * position + 1]
             holder.cardView2.visibility = View.VISIBLE
+            holder.deleteView2.tag = cities[2 * position + 1]
+            holder.deleteView2.setOnClickListener(this)
         } else {
             holder.cardView2.visibility = View.INVISIBLE
         }
@@ -56,6 +62,8 @@ class CityAdapter(
         when (view?.id) {
             R.id.card_view1 -> cityClickListener.onCitySelected(view.tag as City)
             R.id.card_view2 -> cityClickListener.onCitySelected(view.tag as City)
+            R.id.image_view_bin1 -> cityClickListener.onCityDeleted(view.tag as City)
+            R.id.image_view_bin2 -> cityClickListener.onCityDeleted(view.tag as City)
         }
     }
 

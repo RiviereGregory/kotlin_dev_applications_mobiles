@@ -53,4 +53,20 @@ class Database(context: Context) :
         }
         return cities
     }
+
+    fun deleteCity(city: City): Boolean {
+        var deleteCount = writableDatabase.delete(
+            CITY_TABLE_NAME,
+            "$CITY_KEY_ID=?",
+            arrayOf("${city.id}")
+        )
+        if (city.id == -1) {
+            deleteCount = writableDatabase.delete(
+                CITY_TABLE_NAME,
+                "$CITY_KEY_NAME=?",
+                arrayOf("${city.name}")
+            )
+        }
+        return deleteCount > 0
+    }
 }

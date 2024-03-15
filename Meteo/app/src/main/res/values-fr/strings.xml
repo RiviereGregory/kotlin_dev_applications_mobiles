@@ -8,4 +8,8 @@
     <string name="could_not_create_the_city">Impossible de créer la ville …</string>
     <string name="city_2">City 2</string>
     <string name="city_1">City 1</string>
+    <string name="delete_city">Supprimer une ville</string>
+    <string name="delete_city_title">"Voulez vous réellement supprimer %1$s?"</string>
+    <string name="city_has_deleted">"%1$s a été supprimé"</string>
+    <string name="city_not_deleted">"La ville %1$s n'a pas pu être supprimé"</string>
 </resources>

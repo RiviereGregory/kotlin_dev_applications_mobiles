@@ -35,6 +35,14 @@
                 android:text="@string/city_1"
                 android:textSize="12sp" />
 
+            <ImageView
+                android:id="@+id/image_view_bin1"
+                android:layout_width="48dp"
+                android:layout_height="48dp"
+                android:layout_alignParentRight="true"
+                android:layout_centerVertical="true"
+                android:src="@drawable/delete" />
+
         </RelativeLayout>
 
 
@@ -71,6 +79,14 @@
                 android:layout_toRightOf="@+id/image_view2"
                 android:text="@string/city_2"
                 android:textSize="12sp" />
+
+            <ImageView
+                android:id="@+id/image_view_bin2"
+                android:layout_width="48dp"
+                android:layout_height="48dp"
+                android:layout_alignParentRight="true"
+                android:layout_centerVertical="true"
+                android:src="@drawable/delete" />
 
         </RelativeLayout>
 

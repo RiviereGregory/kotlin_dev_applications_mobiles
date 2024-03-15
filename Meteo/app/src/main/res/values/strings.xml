@@ -7,4 +7,8 @@
     <string name="could_not_create_the_city">Could not create the city …</string>
     <string name="city_2">City 2</string>
     <string name="city_1">City 1</string>
+    <string name="delete_city">Delete city</string>
+    <string name="delete_city_title">"Do you really want to delete %1$s?"</string>
+    <string name="city_has_deleted">"%1$s has been deleted"</string>
+    <string name="city_not_deleted">"Could not delete the city %1$s"</string>
 </resources>
