@@ -12,4 +12,6 @@
     <string name="delete_city_title">"Voulez vous réellement supprimer %1$s?"</string>
     <string name="city_has_deleted">"%1$s a été supprimé"</string>
     <string name="city_not_deleted">"La ville %1$s n'a pas pu être supprimé"</string>
+    <string name="city_not_load">"La ville %1$s n'a pas pu être chargé"</string>
+    <string name="city_load">"OpenWeatherMap Réponse : %1$s"</string>
 </resources>
