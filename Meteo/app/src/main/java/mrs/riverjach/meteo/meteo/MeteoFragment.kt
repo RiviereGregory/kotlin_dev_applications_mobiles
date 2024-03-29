@@ -18,6 +18,7 @@ import kotlinx.android.synthetic.main.fragment_meteo.sunrise
 import kotlinx.android.synthetic.main.fragment_meteo.sunset
 import kotlinx.android.synthetic.main.fragment_meteo.temperature
 import mrs.riverjach.meteo.App
+import mrs.riverjach.meteo.MainActivity
 import mrs.riverjach.meteo.R
 import mrs.riverjach.meteo.openweather.WeatherWrapper
 import mrs.riverjach.meteo.openweather.mapOpenWeatherDataToWeather
@@ -54,7 +55,7 @@ class MeteoFragment : Fragment() {
 
     private fun updateMeteo(cityName: String) {
         this.cityName = cityName
-        val call = App.weatherService.getWeather(cityName)
+        val call = App.weatherService.getWeather(MainActivity.langiso, cityName)
         call.enqueue(object : Callback<WeatherWrapper> {
             override fun onFailure(call: Call<WeatherWrapper>, t: Throwable) {
                 Toast.makeText(
