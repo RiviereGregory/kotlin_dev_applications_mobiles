@@ -14,4 +14,10 @@
     <string name="city_not_deleted">"La ville %1$s n'a pas pu être supprimé"</string>
     <string name="city_not_load">"La ville %1$s n'a pas pu être chargé"</string>
     <string name="city_load">"OpenWeatherMap Réponse : %1$s"</string>
+    <string name="city">Ville</string>
+    <string name="description">Description</string>
+    <string name="temperature">Temperature</string>
+    <string name="pressure">Pressure</string>
+    <string name="humidity">Humidity</string>
+    <string name="sunrise">Sunrise</string>
 </resources>

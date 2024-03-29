@@ -13,4 +13,10 @@
     <string name="city_not_deleted">"Could not delete the city %1$s"</string>
     <string name="city_not_load">"Could not load for city: %1$s"</string>
     <string name="city_load">"OpenWeatherMap Response : %1$s"</string>
+    <string name="city">City</string>
+    <string name="description">Description</string>
+    <string name="temperature">Temperature</string>
+    <string name="pressure">Pressure</string>
+    <string name="humidity">Humidity</string>
+    <string name="sunrise">Sunrise</string>
 </resources>

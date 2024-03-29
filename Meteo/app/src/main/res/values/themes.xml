@@ -2,4 +2,17 @@
 <resources>
 
     <style name="Theme.Meteo" parent="Theme.AppCompat.Light.DarkActionBar" />
+
+    <style name="TitreFontStyle">
+        <item name="android:textSize">40sp</item>
+        <item name="android:fontFamily">sans-serif-black</item>
+        <item name="android:color">#000000</item>
+    </style>
+
+    <style name="ValeurFontStyle">
+        <item name="android:textSize">20sp</item>
+        <item name="android:fontFamily">sans-serif</item>
+        <item name="android:color">#778899</item>
+    </style>
+
 </resources>
