@@ -20,4 +20,7 @@
     <string name="pressure">Pressure</string>
     <string name="humidity">Humidity</string>
     <string name="sunrise">Sunrise</string>
+    <string name="temperature_city">"Température: %1$s °C"</string>
+    <string name="pressure_city">"Pression: %1$s hPa"</string>
+    <string name="humidity_city">"Humidité : %1$s %%"</string>
 </resources>
