@@ -14,6 +14,8 @@ import kotlinx.android.synthetic.main.fragment_meteo.city
 import kotlinx.android.synthetic.main.fragment_meteo.description
 import kotlinx.android.synthetic.main.fragment_meteo.humidity
 import kotlinx.android.synthetic.main.fragment_meteo.icon_image
+import kotlinx.android.synthetic.main.fragment_meteo.icon_sunrise
+import kotlinx.android.synthetic.main.fragment_meteo.icon_sunset
 import kotlinx.android.synthetic.main.fragment_meteo.pressure
 import kotlinx.android.synthetic.main.fragment_meteo.sunrise
 import kotlinx.android.synthetic.main.fragment_meteo.sunset
@@ -54,10 +56,12 @@ class MeteoFragment : Fragment() {
         super.onViewCreated(view, savedInstanceState)
         if (activity?.intent!!.hasExtra(EXTRA_CITY_NAME)) {
             activity?.intent!!.getStringExtra(EXTRA_CITY_NAME)?.let { updateMeteo(it) }
+        } else {
+            App.modeTablette = true
         }
     }
 
-    private fun updateMeteo(cityName: String) {
+    fun updateMeteo(cityName: String) {
         this.cityName = cityName
         var meteo: Meteo
         if (!refreshLayout.isRefreshing) {
@@ -91,6 +95,9 @@ class MeteoFragment : Fragment() {
                     humidity.text = getString(R.string.humidity_city, "${meteo.humidity}")
                     sunrise.text = utcToDate(meteo.sunrise)
                     sunset.text = utcToDate(meteo.sunset)
+                    icon_sunset.visibility = View.VISIBLE
+                    icon_sunrise.visibility = View.VISIBLE
+                    icon_image.visibility = View.VISIBLE
                     refreshLayout.isRefreshing = false
                 }
             }

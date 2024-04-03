@@ -25,6 +25,8 @@ class App : Application() {
             .build()
 
         val weatherService: OpenWeatherService = retrofit.create(OpenWeatherService::class.java)
+
+        var modeTablette = false
     }
 
     override fun onCreate() {

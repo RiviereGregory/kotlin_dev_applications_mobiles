@@ -18,6 +18,7 @@ import mrs.riverjach.meteo.R
 class CityFragment : Fragment(), CityAdapter.CityItemListener {
     interface CityFragmentListener {
         fun onCitySelected(city: City)
+        fun onEmptyCities()
     }
 
     var listener: CityFragmentListener? = null
@@ -129,6 +130,9 @@ class CityFragment : Fragment(), CityAdapter.CityItemListener {
         if (database.deleteCity(city)) {
             cities.remove(city)
             cityAdapter.notifyDataSetChanged()
+            if (App.modeTablette) {
+                selectFirstCity()
+            }
             Toast.makeText(
                 context,
                 getString(R.string.city_has_deleted, city.name),
@@ -140,6 +144,13 @@ class CityFragment : Fragment(), CityAdapter.CityItemListener {
                 getString(R.string.city_not_deleted, city.name),
                 Toast.LENGTH_SHORT
             ).show()
+        }
+    }
+
+    private fun selectFirstCity() {
+        when (cities.isEmpty() && App.modeTablette) {
+            true -> listener?.onEmptyCities()
+            false -> onCitySelected(cities.first())
         }
     }
 
