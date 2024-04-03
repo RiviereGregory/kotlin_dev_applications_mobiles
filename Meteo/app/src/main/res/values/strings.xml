@@ -22,4 +22,9 @@
     <string name="temperature_city">"Temperature: %1$s °C"</string>
     <string name="pressure_city">"Pressure: %1$s hPa"</string>
     <string name="humidity_city">"Humidity : %1$s %%"</string>
+    <string name="appwidget_text">City Name</string>
+    <string name="configure">Configure</string>
+    <string name="add_widget">Add widget</string>
+    <string name="app_widget_description">This is an app widget description</string>
+    <string name="_12_c">12°C</string>
 </resources>

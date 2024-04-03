@@ -15,6 +15,25 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.Meteo"
         tools:targetApi="31">
+        <receiver
+            android:name=".WidgetMeteo"
+            android:exported="false">
+            <intent-filter>
+                <action android:name="android.appwidget.action.APPWIDGET_UPDATE" />
+            </intent-filter>
+
+            <meta-data
+                android:name="android.appwidget.provider"
+                android:resource="@xml/widget_meteo_info" />
+        </receiver>
+
+        <activity
+            android:name=".WidgetMeteoConfigureActivity"
+            android:exported="false">
+            <intent-filter>
+                <action android:name="android.appwidget.action.APPWIDGET_CONFIGURE" />
+            </intent-filter>
+        </activity>
         <activity android:name=".meteo.MeteoActivity" />
         <activity
             android:name=".MainActivity"
