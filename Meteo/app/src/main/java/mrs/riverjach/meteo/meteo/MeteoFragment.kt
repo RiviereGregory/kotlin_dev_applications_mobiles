@@ -8,6 +8,7 @@ import android.view.View
 import android.view.ViewGroup
 import android.widget.Toast
 import androidx.fragment.app.Fragment
+import androidx.swiperefreshlayout.widget.SwipeRefreshLayout
 import com.squareup.picasso.Picasso
 import kotlinx.android.synthetic.main.fragment_meteo.city
 import kotlinx.android.synthetic.main.fragment_meteo.description
@@ -30,6 +31,7 @@ import java.util.TimeZone
 
 class MeteoFragment : Fragment() {
     private lateinit var cityName: String
+    private lateinit var refreshLayout: SwipeRefreshLayout
 
     companion object {
         val EXTRA_CITY_NAME = "meteofragment.extras.EXTRA"
@@ -43,6 +45,8 @@ class MeteoFragment : Fragment() {
         savedInstanceState: Bundle?
     ): View? {
         val view = inflater.inflate(R.layout.fragment_meteo, container, false)
+        refreshLayout = view.findViewById(R.id.swipe_refresh)
+        refreshLayout.setOnRefreshListener { updateMeteo(cityName) }
         return view
     }
 
@@ -55,6 +59,10 @@ class MeteoFragment : Fragment() {
 
     private fun updateMeteo(cityName: String) {
         this.cityName = cityName
+        var meteo: Meteo
+        if (!refreshLayout.isRefreshing) {
+            refreshLayout.isRefreshing = true
+        }
         val call = App.weatherService.getWeather(MainActivity.langiso, cityName)
         call.enqueue(object : Callback<WeatherWrapper> {
             override fun onFailure(call: Call<WeatherWrapper>, t: Throwable) {
@@ -64,6 +72,7 @@ class MeteoFragment : Fragment() {
                     Toast.LENGTH_SHORT
                 ).show()
                 Log.e("Meteo Fragment", getString(R.string.city_not_load, cityName))
+                refreshLayout.isRefreshing = false
             }
 
             @SuppressLint("StringFormatMatches")
@@ -72,7 +81,7 @@ class MeteoFragment : Fragment() {
                 response: Response<WeatherWrapper>
             ) {
                 response.body()?.let {
-                    val meteo = mapOpenWeatherDataToWeather(it)
+                    meteo = mapOpenWeatherDataToWeather(it)
                     Log.i("Meteo Fragment", getString(R.string.city_load, meteo))
                     city.text = cityName
                     Picasso.get().load(meteo.iconUrl).into(icon_image)
@@ -82,7 +91,7 @@ class MeteoFragment : Fragment() {
                     humidity.text = getString(R.string.humidity_city, "${meteo.humidity}")
                     sunrise.text = utcToDate(meteo.sunrise)
                     sunset.text = utcToDate(meteo.sunset)
-
+                    refreshLayout.isRefreshing = false
                 }
             }
         })
