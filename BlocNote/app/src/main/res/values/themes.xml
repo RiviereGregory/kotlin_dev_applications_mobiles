@@ -6,7 +6,7 @@
     </style>
 
 
-    <style name="ToolbarTheme" parent="@style/Theme.AppCompat.Light.DarkActionBar">
+    <style name="ToolbarTheme" parent="@style/ThemeOverlay.AppCompat.ActionBar">
         <item name="android:textColorPrimary">@color/white</item>
     </style>
 
