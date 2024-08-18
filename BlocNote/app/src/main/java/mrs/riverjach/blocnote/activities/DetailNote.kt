@@ -9,22 +9,24 @@ import android.view.MenuItem
 import android.view.View
 import android.widget.RadioButton
 import android.widget.RadioGroup
+import android.widget.RadioGroup.OnCheckedChangeListener
 import android.widget.RelativeLayout
 import android.widget.TextView
 import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
 import androidx.appcompat.widget.Toolbar
 import mrs.riverjach.blocnote.R
+import mrs.riverjach.blocnote.adapter.NoteAdapter
 import mrs.riverjach.blocnote.fragments.ConfirmDeleteNoteDialogFragment
 import mrs.riverjach.blocnote.model.Categories
 import mrs.riverjach.blocnote.model.Note
 
-class DetailNote : AppCompatActivity(), View.OnClickListener {
+class DetailNote : AppCompatActivity(), View.OnClickListener, OnCheckedChangeListener {
 
     companion object {
-        val REQUEST_EDIT_NOTE = 1
-        val ACTION_SAVE = "mrs.riverjach.blocnote.activities.ACTION_SAVE"
-        val ACTION_DELETE = "mrs.riverjach.blocnote.activities.ACTION_DELETE"
+        const val REQUEST_EDIT_NOTE = 1
+        const val ACTION_SAVE = "mrs.riverjach.blocnote.activities.ACTION_SAVE"
+        const val ACTION_DELETE = "mrs.riverjach.blocnote.activities.ACTION_DELETE"
         var categories: List<Categories> = listOf(
             Categories.FAIRE,
             Categories.COURSE,
@@ -36,13 +38,13 @@ class DetailNote : AppCompatActivity(), View.OnClickListener {
         )
     }
 
-    lateinit var note: Note
-    lateinit var textViewTitre: TextView
-    lateinit var textViewCategorie: TextView
-    lateinit var textViewContenu: TextView
-    lateinit var rLayout: RelativeLayout
-    lateinit var radioGroup: RadioGroup
-    var noteIndex = -1
+    private lateinit var note: Note
+    private lateinit var textViewTitre: TextView
+    private lateinit var textViewCategorie: TextView
+    private lateinit var textViewContenu: TextView
+    private lateinit var rLayout: RelativeLayout
+    private lateinit var radioGroup: RadioGroup
+    private var noteIndex = -1
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -56,6 +58,7 @@ class DetailNote : AppCompatActivity(), View.OnClickListener {
         radioGroup = findViewById(R.id.radiogroup)
         rLayout = findViewById(R.id.layout)
         textViewCategorie.setOnClickListener(this)
+        radioGroup.setOnCheckedChangeListener(this)
 
         textViewTitre.text = note.titre
         val category = categories[note.cat]
@@ -76,9 +79,12 @@ class DetailNote : AppCompatActivity(), View.OnClickListener {
     override fun onOptionsItemSelected(item: MenuItem): Boolean {
         return when (item.itemId) {
             R.id.action_save -> {
-                Toast.makeText(this, getString(R.string.icone_save_cliqu), Toast.LENGTH_SHORT)
-                    .show()
                 saveNote()
+                Toast.makeText(
+                    this,
+                    note.titre + " " + getString(R.string.icone_save_cliqu),
+                    Toast.LENGTH_SHORT
+                ).show()
                 true
             }
 
@@ -121,7 +127,7 @@ class DetailNote : AppCompatActivity(), View.OnClickListener {
         }
     }
 
-    fun saveNote() {
+    private fun saveNote() {
         note.titre = textViewTitre.text.toString()
         note.contenu = textViewContenu.text.toString()
         when {
@@ -138,5 +144,17 @@ class DetailNote : AppCompatActivity(), View.OnClickListener {
         intent.putExtra("noteindex", noteIndex)
         setResult(Activity.RESULT_OK, intent)
         finish()
+    }
+
+    override fun onCheckedChanged(radioGroup: RadioGroup?, value: Int) {
+        when (value) {
+            R.id.radio0 -> rLayout.setBackgroundColor(NoteAdapter.color[0])
+            R.id.radio1 -> rLayout.setBackgroundColor(NoteAdapter.color[1])
+            R.id.radio2 -> rLayout.setBackgroundColor(NoteAdapter.color[2])
+            R.id.radio3 -> rLayout.setBackgroundColor(NoteAdapter.color[3])
+            R.id.radio4 -> rLayout.setBackgroundColor(NoteAdapter.color[4])
+            R.id.radio5 -> rLayout.setBackgroundColor(NoteAdapter.color[5])
+            R.id.radio6 -> rLayout.setBackgroundColor(NoteAdapter.color[6])
+        }
     }
 }

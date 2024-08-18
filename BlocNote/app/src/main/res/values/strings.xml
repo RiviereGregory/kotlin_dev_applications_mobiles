@@ -7,8 +7,8 @@
     <string name="blocnote">BlocNote</string>
     <string name="note_mode_dition">Note : mode édition</string>
     <string name="enregistrer">Enregistrer</string>
-    <string name="textview_cliqu">textview cliqué !</string>
-    <string name="icone_save_cliqu">icone save cliqué</string>
+    <string name="textview_cliqu">Selectionner la catégorie</string>
+    <string name="icone_save_cliqu"> est enregistré</string>
     <string name="j_adore_le_langage_kotlin">J\'adore le langage Kotlin</string>
     <string name="a_faire">A faire</string>
     <string name="liste_de_courses">Liste de courses</string>

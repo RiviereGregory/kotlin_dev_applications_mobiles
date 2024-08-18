@@ -47,7 +47,7 @@
         android:focusable="true"
         android:fontFamily="serif"
         android:text="@string/cat_gorie"
-        android:textSize="16sp" />
+        android:textSize="20sp" />
 
     <RadioGroup
         android:id="@+id/radiogroup"
@@ -62,43 +62,50 @@
             android:id="@+id/radio0"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="@string/a_faire" />
+            android:text="@string/a_faire"
+            android:textSize="20sp" />
 
         <RadioButton
             android:id="@+id/radio1"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="@string/liste_de_courses" />
+            android:text="@string/liste_de_courses"
+            android:textSize="20sp" />
 
         <RadioButton
             android:id="@+id/radio2"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="@string/rendez_vous_pro" />
+            android:text="@string/rendez_vous_pro"
+            android:textSize="20sp" />
 
         <RadioButton
             android:id="@+id/radio3"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="@string/rendez_vous_perso" />
+            android:text="@string/rendez_vous_perso"
+            android:textSize="20sp" />
 
         <RadioButton
             android:id="@+id/radio4"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="@string/lien_internet" />
+            android:text="@string/lien_internet"
+            android:textSize="20sp" />
 
         <RadioButton
             android:id="@+id/radio5"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="@string/contact" />
+            android:text="@string/contact"
+            android:textSize="20sp" />
 
         <RadioButton
             android:id="@+id/radio6"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="@string/loisirs" />
+            android:text="@string/loisirs"
+            android:textSize="20sp" />
 
     </RadioGroup>
 

@@ -9,6 +9,7 @@ import android.widget.TextView
 import androidx.cardview.widget.CardView
 import androidx.recyclerview.widget.RecyclerView
 import mrs.riverjach.blocnote.R
+import mrs.riverjach.blocnote.activities.DetailNote
 import mrs.riverjach.blocnote.model.Note
 
 class NoteAdapter(
@@ -31,14 +32,17 @@ class NoteAdapter(
         val cardView1 = itemView.findViewById<CardView>(R.id.card_view1)
         val titre1 = cardView1.findViewById<TextView>(R.id.titre1)
         val contenu1 = cardView1.findViewById<TextView>(R.id.contenu1)
+        val cat1 = cardView1.findViewById<TextView>(R.id.cat1)
         val layout1 = cardView1.findViewById<RelativeLayout>(R.id.layout1)
         val cardView2 = itemView.findViewById<CardView>(R.id.card_view2)
         val titre2 = cardView2.findViewById<TextView>(R.id.titre2)
         val contenu2 = cardView2.findViewById<TextView>(R.id.contenu2)
+        val cat2 = cardView2.findViewById<TextView>(R.id.cat2)
         val layout2 = cardView2.findViewById<RelativeLayout>(R.id.layout2)
         val cardView3 = itemView.findViewById<CardView>(R.id.card_view3)
         val titre3 = cardView3.findViewById<TextView>(R.id.titre3)
         val contenu3 = cardView3.findViewById<TextView>(R.id.contenu3)
+        val cat3 = cardView3.findViewById<TextView>(R.id.cat3)
         val layout3 = cardView3.findViewById<RelativeLayout>(R.id.layout3)
 
     }
@@ -61,6 +65,7 @@ class NoteAdapter(
             val cat1 = notes[position1].cat
             holder.titre1.text = titre1
             holder.contenu1.text = contenu1
+            holder.cat1.text = DetailNote.categories[cat1].toString()
             holder.cardView1.setOnClickListener(itemClickListener)
             holder.cardView1.tag = "${filename1};$position1"
             holder.layout1.setBackgroundColor(color[cat1])
@@ -73,6 +78,7 @@ class NoteAdapter(
             val cat2 = notes[position2].cat
             holder.titre2.text = titre2
             holder.contenu2.text = contenu2
+            holder.cat2.text = DetailNote.categories[cat2].toString()
             holder.cardView2.setOnClickListener(itemClickListener)
             holder.cardView2.tag = "${filename2};$position2"
             holder.layout2.setBackgroundColor(color[cat2])
@@ -90,6 +96,7 @@ class NoteAdapter(
             val cat3 = notes[position3].cat
             holder.titre3.text = titre3
             holder.contenu3.text = contenu3
+            holder.cat3.text = DetailNote.categories[cat3].toString()
             holder.cardView3.setOnClickListener(itemClickListener)
             holder.cardView3.tag = "${filename3};$position3"
             holder.layout3.setBackgroundColor(color[cat3])

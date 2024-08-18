@@ -18,8 +18,8 @@ import mrs.riverjach.blocnote.urils.loadNotes
 import mrs.riverjach.blocnote.urils.writeNote
 
 class MainActivity : ComponentActivity(), View.OnClickListener {
-    lateinit var notes: MutableList<Note>
-    lateinit var adapter: NoteAdapter
+    private lateinit var notes: MutableList<Note>
+    private lateinit var adapter: NoteAdapter
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.listes_notes)
@@ -38,7 +38,7 @@ class MainActivity : ComponentActivity(), View.OnClickListener {
             val chaine = view.tag as String
             val chaineList = chaine.split(";")
             val pos = chaineList[1].toInt()
-            Toast.makeText(this, "tag : ${pos}", Toast.LENGTH_SHORT).show()
+            Toast.makeText(this, "${notes[pos].titre} est en édition", Toast.LENGTH_SHORT).show()
 
             editNote(pos)
         } else {
